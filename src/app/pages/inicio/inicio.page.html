@@ -1,0 +1,68 @@
+<ion-header></ion-header>
+
+
+<ion-content  padding class="background" scroll="false" >
+
+  <div style="height: 80px;"></div>
+ 
+  <ion-title text-center>
+  <img alt="Logo" id="header_Logo" height="150" float-leftimg src="assets\imagenes\Logo.png" class="ion-align-items-center"/>
+  </ion-title>
+
+
+  <ion-card color="light">
+      <ion-input placeholder="Usuario" type="email">
+          <ion-icon name="person" slot="start"></ion-icon>
+      </ion-input>
+      
+  </ion-card>
+
+    <ion-card color="light">
+        <ion-input placeholder="Contraseña" type="password">
+            <ion-icon name="lock" slot="start"></ion-icon>
+            <ion-icon src="/path/to/external/file.svg"></ion-icon>
+        </ion-input>
+
+    </ion-card>
+
+    <ion-item color="transparent">
+        <ion-label>Mantener sesion iniciada</ion-label>
+        <ion-toggle color="light"></ion-toggle>
+    </ion-item>
+    
+    <ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <ion-button class="login-button" color="ekarteMorado">Iniciar Sección</ion-button>
+        </ion-col>
+
+        <ion-col>
+          
+          <ion-button class="login-button" routerLink="/registro" color="ekarteMorado">Registro</ion-button>
+        </ion-col>
+      </ion-row>
+
+    
+    </ion-grid>
+   
+    
+
+
+<ion-toolbar slot="" color="transparent">
+      
+  <div><div class="row" style="height: 10px;">
+    
+      <h6 align="center" routerLink="/recuperar-contrasena">¿Olvidó su contraseña?</h6>
+     </div>
+  </div>
+      
+      
+    
+</ion-toolbar>
+</ion-content>
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+.hcs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.login-button {
+    width: 100%;
+  --border-radius: 10% !important;
+}
+
+.background {
+  --background: url(/assets/imagenes/Plantilla1.png) 0 0/100% 100% no-repeat;
+}
+
+.posicion {
+  height: 500px;
+  width: 500px;
+  vertical-align: middle;
+}

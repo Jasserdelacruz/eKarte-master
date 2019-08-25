@@ -1,0 +1,7 @@
+{
+  "name": "eKarte",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

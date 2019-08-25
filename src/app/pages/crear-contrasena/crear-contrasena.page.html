@@ -1,0 +1,28 @@
+<ion-header no-border>
+  <ion-toolbar padding class="background">
+
+      <ion-buttons slot="start">
+          <ion-back-button  defaultHref="/registro"></ion-back-button>
+    
+        </ion-buttons>
+
+    <ion-title color="light">Crear Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+      <ion-item>
+        <ion-label color="primary">Contraseña</ion-label>
+        <ion-input placeholder="Ingrese su nueva contraseña"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label color="primary">Confirmar Contraseña</ion-label>
+          <ion-input placeholder="Repita su contraseña"></ion-input>
+        </ion-item>  
+
+        <ion-button color="secondary" expand="block" routerLink="/mistarjetas">Enviar y finalizar</ion-button>
+    </ion-list>
+</ion-content>

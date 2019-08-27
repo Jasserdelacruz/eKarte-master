@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { AuthService} from '../../servicios/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-cuenta',
@@ -9,8 +11,14 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 export class CrearCuentaPage implements OnInit {
 
   foto: any;
+  public nombre : string;
+  public apellido : string;
+  public genero : string;
+  public email : string;
+  public password : string;
+  
 
-  constructor(private camera: Camera) { }
+  constructor(private camera: Camera, private auth : AuthService, private router : Router ) { }
 
   tomarfoto() {
     const options: CameraOptions = {
@@ -49,9 +57,17 @@ export class CrearCuentaPage implements OnInit {
     }, (err) => {
      // Handle error
     });
-
   }
 
+  onSubmitRegister()
+  {
+    this.auth.register(this.nombre, this.apellido, this.genero,this.email, this.password).then(auth =>
+    {
+      this.router.navigate(['/inicio'])
+      console.log(auth)
+    }
+    ).catch(err =>console.log(err))
+  }
 
   ngOnInit() {
   }

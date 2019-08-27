@@ -33,28 +33,32 @@
 
   <ion-item> 
   <ion-label color="primary">Nombre</ion-label>
-  <ion-input placeholder="Ingrese su nombre"></ion-input>
+  <ion-input placeholder="Ingrese su nombre" [(ngModel)] = "nombre"></ion-input>
   </ion-item>  
 
   <ion-item>
   <ion-label color="primary">Apellido</ion-label>
-  <ion-input placeholder="Ingrese su apellido"></ion-input>
+  <ion-input placeholder="Ingrese su apellido" [(ngModel)] = "apellido"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary">Género</ion-label>
-  <ion-select placeholder="Seleccione uno">
-    <ion-select-option value="Masculino">Masculino</ion-select-option>
-    <ion-select-option value="Femenino">Femenino</ion-select-option>
+  <ion-select placeholder="Seleccione uno" [(ngModel)] = "genero">
+    <ion-select-option value="Masculino" >Masculino</ion-select-option>
+    <ion-select-option value="Femenino" >Femenino</ion-select-option>
   </ion-select>
   </ion-item>
 
   <ion-item>
       <ion-label color="primary">Correo electronico</ion-label>
-      <ion-input placeholder="ejemplo@ejemplo.com"></ion-input>
+      <ion-input placeholder="ejemplo@ejemplo.com" type="email" [(ngModel)] = "email"></ion-input>
   </ion-item>
   
-  
+  <ion-item>
+    <ion-label color="primary">Contraseña</ion-label>
+    <ion-input placeholder="Contraseña" type="password" [(ngModel)] = "password">
+    </ion-input>
+  </ion-item>
 
   <ion-item>
       <ion-label>Aceptar términos y condiciones</ion-label>
@@ -62,7 +66,6 @@
   </ion-item>
 
 </ion-list>
-  <ion-button color="secondary" expand="block" routerLink="/crear-contrasena">Enviar y continuar</ion-button>
+  <ion-button color="secondary" expand="block" (click)="onSubmitRegister()">Enviar y continuar</ion-button>
    
-
 </ion-content>

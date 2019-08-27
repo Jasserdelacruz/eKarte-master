@@ -11,14 +11,14 @@
 
 
   <ion-card color="light">
-      <ion-input placeholder="Usuario" type="email">
+      <ion-input placeholder="Usuario" type="email" [(ngModel)] = "email">
           <ion-icon name="person" slot="start"></ion-icon>
       </ion-input>
       
   </ion-card>
 
     <ion-card color="light">
-        <ion-input placeholder="Contraseña" type="password">
+        <ion-input placeholder="Contraseña" type="password" [(ngModel)] = "password">
             <ion-icon name="lock" slot="start"></ion-icon>
             <ion-icon src="/path/to/external/file.svg"></ion-icon>
         </ion-input>
@@ -33,16 +33,13 @@
     <ion-grid>
       <ion-row class="ion-align-items-center">
         <ion-col>
-          <ion-button class="login-button" color="ekarteMorado">Iniciar Sección</ion-button>
+          <ion-button (click)="onSubmitLogin()" class="login-button" color="ekarteMorado">Iniciar Sección</ion-button>
         </ion-col>
 
         <ion-col>
-          
           <ion-button class="login-button" routerLink="/registro" color="ekarteMorado">Registro</ion-button>
         </ion-col>
       </ion-row>
-
-    
     </ion-grid>
    
     

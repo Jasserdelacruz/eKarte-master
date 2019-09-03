@@ -1,7 +1,16 @@
-<ion-header no-border  >
-    
-    <ion-toolbar padding class="background">
 
+<ion-header no-border  >
+  <ion-header *ngIf ="!hasverifiedemail">Por Favor Verifique su Email
+   <div>
+    <ion-button (click)="onSendVerificationEmail()">Enviar Email de Verificación</ion-button>
+   
+    <ion-button (click) = "onReload()">Refrescar</ion-button>
+  </div>
+  <div *ngIf="sentTimestamp">
+    Email de Verificación Enviado: {{sentTimestamp | date:'medium'}}
+  </div>
+  </ion-header>   
+    <ion-toolbar padding class="background">
       <ion-buttons slot="start">
           <ion-back-button  defaultHref="/inicio"></ion-back-button>
     

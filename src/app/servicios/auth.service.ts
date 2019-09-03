@@ -7,12 +7,32 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providedIn: 'root'
 })
 export class AuthService {
+  private hasverifiedemail = true;
   constructor
   (
     private AFauth: AngularFireAuth, 
-    private db: AngularFirestore
-    
-  ) { }
+    private db: AngularFirestore,
+    ) { }
+
+  emailverification()
+  {
+
+    this.AFauth.authState.subscribe(user =>
+     { 
+     if (user)
+     { 
+        setInterval(() => {
+          this.hasverifiedemail = this.AFauth.auth.currentUser.emailVerified;
+        },3000);
+      }
+    })     
+    return this.AFauth.auth.currentUser.emailVerified;
+  }
+
+  sendVerificationEmail()
+  {
+    this.AFauth.auth.currentUser.sendEmailVerification();
+  }
 
   login (email:string, password:string)
   {
@@ -26,6 +46,7 @@ export class AuthService {
   
     });
   }
+
   register(nombre : string, apellido : string , genero : string , email: string, password: string)
   {
     return new Promise ((resolve, reject) => 

@@ -1,0 +1,31 @@
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-form-field {
+  margin-right: 12px;
+}
+.estilo{
+  width: auto;
+  height: auto;
+}
+.colors{
+  background-color: rgb(245, 245, 248);
+}
+.background{
+  --background: url(/assets/imagenes/Plantilla1.png) 0 0/100% 100% no-repeat ;
+}
+img{
+  display:block;
+  margin:auto;
+
+}
+.background1{
+  --background: url(/assets/imagenes/gris-claro.jpg) 0 0/100% 100% no-repeat ;}
+

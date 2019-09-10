@@ -1,4 +1,5 @@
-<ion-header no-border>
+<ion-header  no-border>
+
   <ion-toolbar>
       <ion-buttons slot="start">
           <ion-back-button  defaultHref="/inicio"></ion-back-button>
@@ -8,8 +9,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-    
-
+<ion-content id="ion-content-recuperar-contrasena">
+  <ion-item>
+    <ion-label color="primary">Correo electronico</ion-label>
+    <ion-input placeholder="ejemplo@ejemplo.com" type="email" [(ngModel)] = "email"></ion-input>
+  </ion-item>
+  <ion-button color="secondary" expand="block" (click)="onResetEmail()">Enviar y continuar</ion-button>
+  <p class="error pink-text center-aling"></p>
 </ion-content>

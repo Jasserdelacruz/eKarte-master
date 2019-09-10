@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-
 import { AngularFirestore } from '@angular/fire/firestore';
+import { RecuperarContrasenaPage } from '../pages/recuperar-contrasena/recuperar-contrasena.page';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private hasverifiedemail = true;
+  private resultresetpassword;
   constructor
   (
     private AFauth: AngularFireAuth, 
@@ -21,9 +22,7 @@ export class AuthService {
      { 
      if (user)
      { 
-        setInterval(() => {
           this.hasverifiedemail = this.AFauth.auth.currentUser.emailVerified;
-        },3000);
       }
     })     
     return this.AFauth.auth.currentUser.emailVerified;
@@ -43,8 +42,48 @@ export class AuthService {
             resolve(user);
             console.log("estas logueado" + user)
           }).catch (err => rejected(err));
-  
     });
+  }
+
+  sendResetPassword(email : string)
+  {
+
+         this.AFauth.auth.sendPasswordResetEmail(email).then(result => 
+          {
+            var SpanishError= "";
+            const formrecuperarcontrasena = document.querySelector('#ion-content-recuperar-contrasena');
+            formrecuperarcontrasena.querySelector('.error').innerHTML = "Hemos Enviado el Email de recuperacion, verifique su bandeja.";
+          }
+          ).catch(err => 
+            {
+              var SpanishError= "";
+              const formrecuperarcontrasena = document.querySelector('#ion-content-recuperar-contrasena');
+              
+              if (err.code=="auth/argument-error")
+              {
+                SpanishError = "Peticion Fallida. Todos los argumentos del Email deben ser validos."
+              }
+              else if (err.code == "auth/user-not-found")
+              {
+                SpanishError = "El correo Ingresado no existe."
+              }
+              else if (err.code == "auth/invalid-email")
+              {
+                SpanishError = "El correo Ingresado es incorrecto."
+              }
+              else if (err.code == "auth/too-many-requests")
+              {
+                SpanishError = "Hemos bloqueado todas las peticiones de este dispositivo por actividad inusual. Favor intente mas tarde." 
+              }
+              else
+              {
+                SpanishError = err.code+"-"+err.message
+              }
+              formrecuperarcontrasena.querySelector('.error').innerHTML = SpanishError;
+              console.log(err);
+            }  
+          );
+
   }
 
   register(nombre : string, apellido : string , genero : string , email: string, password: string)

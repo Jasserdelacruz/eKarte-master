@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService} from '../../servicios/auth.service';
+
 
 @Component({
   selector: 'app-recuperar-contrasena',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recuperar-contrasena.page.scss'],
 })
 export class RecuperarContrasenaPage implements OnInit {
+  public email : string;
+  constructor(private auth : AuthService) {
+   }
+    onResetEmail()
+    {
+      this.auth.sendResetPassword(this.email);
+    }
 
-  constructor() { }
+    ngOnInit() {
 
-  ngOnInit() {
-  }
-
+    }
 }

@@ -57,8 +57,23 @@
     </ion-list>
   </ion-content>
 </ion-menu>
-
 <ion-router-outlet id="main"></ion-router-outlet>
+
+<ion-content padding>
+  <ion-progress-bar value="0.5"></ion-progress-bar>
+
+  <button ion-button full (click)="selectSource()">Select Image</button>
+  <button ion-button full (CLick)="recognizeImage()" [disabled]="!selectedImage">Recognize Image</button>
+  <img [src]="selectedImage" *ngIf = "selectedImage">
+
+  <ion-card *ngIf="imageText">
+    <ion-card-header>Image Text</ion-card-header>
+    <ion-card-content>{{imageText}}</ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+
 
 
 

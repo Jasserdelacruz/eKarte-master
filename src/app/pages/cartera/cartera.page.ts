@@ -1,4 +1,13 @@
+import { Platform } from '@ionic/angular';
+
 import { Component, OnInit } from '@angular/core';
+import { StorageService, Item } from '../../servicios/storage.service';
+
+
+
+
+
+
 
 @Component({
   selector: 'app-cartera',
@@ -7,9 +16,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarteraPage implements OnInit {
 
-  constructor() { }
+  items: Item[] = [];
+  newItem: Item = <Item>{};
+
+  constructor(private storageService: StorageService, private ptl: Platform) {
+      this.ptl.ready().then(() => {
+        this.loadItems();
+      });
+     }
+
+     loadItems(){
+      this.storageService.getItems().then(items => {
+        this.items = items;
+      });
+    }
 
   ngOnInit() {
+
   }
 
-}
+
+
+
+  /*
+  loadItems() {
+    this.storageService.getItems().then(items => {
+      this.items = items;
+    });
+  }
+*/
+
+
+  }
+
+
+
+
+

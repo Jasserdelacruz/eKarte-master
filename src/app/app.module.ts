@@ -11,12 +11,13 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
-import { firebaseConfig } from "../environments/environment";
-import { AngularFireModule } from "@angular/fire";
-import {AngularFireAuthModule} from "@angular/fire/auth";
-import {AngularFireStorageModule} from "@angular/fire/storage";
+import { firebaseConfig } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import {AngularFireStorageModule} from '@angular/fire/storage';
 import { AngularFirestore } from '@angular/fire/firestore';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 
@@ -24,13 +25,18 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(),NoopAnimationsModule, AppRoutingModule, AngularFireModule.initializeApp(firebaseConfig),AngularFireAuthModule,AngularFireStorageModule],
+  imports: [BrowserModule, IonicModule.forRoot(),
+  NoopAnimationsModule, AppRoutingModule,
+  AngularFireModule.initializeApp(firebaseConfig),
+  AngularFireAuthModule, AngularFireStorageModule,
+  IonicStorageModule.forRoot()
+  ],
   providers: [
     StatusBar,
     SplashScreen,
     Camera,
     AngularFirestore,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
 })

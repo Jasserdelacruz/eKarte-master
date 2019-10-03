@@ -8,16 +8,19 @@ const routes: Routes = [
   { path: 'crear-cuenta', loadChildren: './pages/crear-cuenta/crear-cuenta.module#CrearCuentaPageModule' },
   { path: 'crear-contrasena', loadChildren: './pages/crear-contrasena/crear-contrasena.module#CrearContrasenaPageModule' },
   { path: 'recuperar-contrasena', loadChildren: './pages/recuperar-contrasena/recuperar-contrasena.module#RecuperarContrasenaPageModule' },
-  { path: 'mistarjetas', loadChildren: './pages/mistarjetas/mistarjetas.module#MistarjetasPageModule' },  { path: 'cartera', loadChildren: './pages/cartera/cartera.module#CarteraPageModule' },
+  { path: 'mistarjetas', loadChildren: './pages/mistarjetas/mistarjetas.module#MistarjetasPageModule' },
+  { path: 'cartera', loadChildren: './pages/cartera/cartera.module#CarteraPageModule' },
   { path: 'ajustes', loadChildren: './pages/ajustes/ajustes.module#AjustesPageModule' },
   { path: 'acerca-de', loadChildren: './pages/acerca-de/acerca-de.module#AcercaDePageModule' },
   { path: 'ayuda', loadChildren: './pages/ayuda/ayuda.module#AyudaPageModule' },
+  { path: 'nueva-tarjeta', loadChildren: './pages/nueva-tarjeta/nueva-tarjeta.module#NuevaTarjetaPageModule' },
 
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
+    
   ],
   exports: [RouterModule]
 })

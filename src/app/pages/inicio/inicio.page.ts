@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../servicios/auth.service";
 import { Router } from "@angular/router";
 
+
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.page.html',
@@ -10,7 +11,7 @@ import { Router } from "@angular/router";
 export class InicioPage implements OnInit {
   email: string;
   password: string;
-  constructor(private authService: AuthService, public router: Router) { }
+  constructor(private authService: AuthService, public router: Router,) { }
 
   ngOnInit() {
   }

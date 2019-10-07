@@ -1,17 +1,16 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { InicioPage } from './inicio.page';
-
+import { TerminosCondicionesPage } from './terminos-condiciones.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: InicioPage
+    component: TerminosCondicionesPage
   }
 ];
 
@@ -20,8 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),Component
   ],
-  declarations: [InicioPage]
+  declarations: [TerminosCondicionesPage]
 })
-export class InicioPageModule {}
+export class TerminosCondicionesPageModule {}

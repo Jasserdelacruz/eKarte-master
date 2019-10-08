@@ -18,6 +18,7 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
 import { AngularFirestore } from '@angular/fire/firestore';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { IonicStorageModule } from '@ionic/storage';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -25,7 +26,7 @@ import { IonicStorageModule } from '@ionic/storage';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(),
+  imports: [HttpClientModule,BrowserModule, IonicModule.forRoot(),
   NoopAnimationsModule, AppRoutingModule,
   AngularFireModule.initializeApp(firebaseConfig),
   AngularFireAuthModule, AngularFireStorageModule,

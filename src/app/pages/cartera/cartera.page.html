@@ -7,29 +7,24 @@
   
       </ion-buttons>
 
-
-
   <ion-title text-center color="light" >Cartera</ion-title> 
   
 </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-{{item.title}}
-
-
+  <ion-list ion-item *ngFor="let tarjeta of tarjetas">
+      <ion-item>
+          <ion-avatar slot="start">
+              <img src="assets/imagenes/ekarteLogo.jpg">
+          </ion-avatar>
+          <ion-label>{{tarjeta.Empresa}}  ---- Puntos: {{tarjeta.Puntos}}</ion-label>
+      </ion-item>
+  </ion-list>
 </ion-content>
 
-
- 
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button href="/nueva-tarjeta">
     <ion-icon name="add"></ion-icon>
     </ion-fab-button>
 </ion-fab> 
-
-
-
-
-

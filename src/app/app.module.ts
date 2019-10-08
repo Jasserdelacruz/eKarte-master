@@ -29,7 +29,9 @@ import { IonicStorageModule } from '@ionic/storage';
   NoopAnimationsModule, AppRoutingModule,
   AngularFireModule.initializeApp(firebaseConfig),
   AngularFireAuthModule, AngularFireStorageModule,
-  IonicStorageModule.forRoot()
+  IonicStorageModule.forRoot({
+    name : 'tarjetasdb'
+  })
   ],
   providers: [
     StatusBar,

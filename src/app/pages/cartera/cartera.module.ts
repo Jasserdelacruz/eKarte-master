@@ -7,6 +7,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { CarteraPage } from './cartera.page';
+import { NuevaTarjetaPage } from '../nueva-tarjeta/nueva-tarjeta.page';
 
 
 
@@ -20,6 +21,7 @@ const routes: Routes = [
 
 @NgModule({
   entryComponents: [
+    NuevaTarjetaPage
  
   
   ],
@@ -29,6 +31,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes),
     ComponentsModule,
+    NuevaTarjetaPage
 
     
  

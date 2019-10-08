@@ -42,7 +42,7 @@
 <ion-grid>
       <ion-row class="ion-align-items-center">
         <ion-col>
-          <ion-button (click)="addItem()" color="ekarteMorado">Guardar</ion-button>
+          <ion-button (click)="getTarjeta()" color="ekarteMorado" href="/cartera">Guardar</ion-button>
         </ion-col>
 
         <ion-col>
@@ -51,14 +51,24 @@
       </ion-row>
 </ion-grid>
 
+ 
+{{listaTarjetas}}
+
+<ion-button (click)="setTheValue()">Set the value</ion-button>
+
+<ion-button (click)="deleteTarjeta()">Delete value</ion-button>
+
+
+
+<!-- 
 <ion-item>
   <ion-label position="fixed">Title</ion-label>
   <ion-input [(ngModel)]="newItem.title"></ion-input>
 </ion-item>
+-->
 
-{{newItem.title}}
-  
- 
+
+
 </ion-content>
 
 

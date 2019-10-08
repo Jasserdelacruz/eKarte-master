@@ -2,6 +2,10 @@ import { Platform } from '@ionic/angular';
 
 import { Component, OnInit } from '@angular/core';
 import { StorageService, Item } from '../../servicios/storage.service';
+import { NuevaTarjetaPage } from '../nueva-tarjeta/nueva-tarjeta.page';
+import { Storage } from '@ionic/storage';
+import { storage } from 'firebase';
+
 
 
 
@@ -20,6 +24,8 @@ export class CarteraPage implements OnInit {
   newItem: Item = <Item>{};
 
   constructor(private storageService: StorageService, private ptl: Platform) {
+    
+
       this.ptl.ready().then(() => {
         this.loadItems();
       });

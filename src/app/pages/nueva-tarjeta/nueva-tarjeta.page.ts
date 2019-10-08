@@ -5,6 +5,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { AuthService} from '../../servicios/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { StorageService, Item } from '../../servicios/storage.service';
+import {Storage} from '@ionic/storage';
 
 
 
@@ -20,10 +21,26 @@ newItem: Item = <Item>{};
 
 foto: any;
 
+nombre: string;
+empresaAsociada: string;
+fechaExpiracion: Date;
+
+tarjeta = {
+ nombre : this.nombre,
+ empresaAsociada : this.empresaAsociada,
+ fechaExpiracion : this.fechaExpiracion
+};
+
+listaTarjetas = [];
+
+
 
 
 constructor(private camera: Camera, private auth : AuthService, private router : Router, private activatedRoute: ActivatedRoute, 
-private storageService: StorageService, private ptl: Platform) {
+private storageService: StorageService, private ptl: Platform, public tarjetas: Storage) {
+
+
+
   this.ptl.ready().then(() => {
     this.loadItems();
   });
@@ -62,6 +79,53 @@ addItem(){
     }, (err) => {
      // Handle error
     });
+  }
+
+
+  setTheValue() {
+    this.tarjeta.nombre = this.nombre;
+    this.tarjeta.empresaAsociada = this.empresaAsociada;
+    this.tarjeta.fechaExpiracion = this.fechaExpiracion;
+    this.listaTarjetas.push([this.tarjeta.nombre, this.tarjeta.empresaAsociada, this.tarjeta.fechaExpiracion]);
+    if (this.listaTarjetas.length === 1) {
+      this.tarjetas.set('datosTarjeta', this.listaTarjetas[0]);
+    }
+
+    if (this.listaTarjetas.length === 2) {
+      this.tarjetas.set('datosTarjeta2', this.listaTarjetas[1]);
+    }
+
+    if (this.listaTarjetas.length === 3) {
+      this.tarjetas.set('datosTarjeta3', this.listaTarjetas[2]);
+    }
+
+
+
+    }
+
+
+    
+  
+
+  getTarjeta() {
+    this.tarjetas.get('datosTarjeta').then((val) => {
+      console.log(val);
+    });
+
+    this.tarjetas.get('datosTarjeta2').then((val) => {
+      console.log(val);
+    });
+
+    this.tarjetas.get('datosTarjeta3').then((val) => {
+      console.log(val);
+    });
+
+  }
+
+  deleteTarjeta() {
+    this.tarjetas.remove('datosTarjeta');
+    this.tarjetas.remove('datosTarjeta2');
+    this.tarjetas.remove('datosTarjeta3');
   }
 
 

@@ -1,3 +1,4 @@
+import { AlmacenamientoTarjetasService } from './servicios/almacenamiento-tarjetas.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -38,6 +39,7 @@ import { IonicStorageModule } from '@ionic/storage';
     SplashScreen,
     Camera,
     AngularFirestore,
+    AlmacenamientoTarjetasService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

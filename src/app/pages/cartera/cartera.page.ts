@@ -1,14 +1,9 @@
+import { AlmacenamientoTarjetasService } from './../../servicios/almacenamiento-tarjetas.service';
 import { Platform } from '@ionic/angular';
-
 import { Component, OnInit } from '@angular/core';
 import { StorageService, Item } from '../../servicios/storage.service';
-import { NuevaTarjetaPage } from '../nueva-tarjeta/nueva-tarjeta.page';
 import { Storage } from '@ionic/storage';
-import { storage } from 'firebase';
-
-
-
-
+import { NuevaTarjetaPage } from '../nueva-tarjeta/nueva-tarjeta.page';
 
 
 
@@ -18,44 +13,30 @@ import { storage } from 'firebase';
   templateUrl: './cartera.page.html',
   styleUrls: ['./cartera.page.scss'],
 })
+
+
 export class CarteraPage implements OnInit {
 
-  items: Item[] = [];
-  newItem: Item = <Item>{};
 
-  constructor(private storageService: StorageService, private ptl: Platform) {
-    
+  constructor(public obtenerTarjeta: AlmacenamientoTarjetasService) {
 
-      this.ptl.ready().then(() => {
-        this.loadItems();
-      });
-     }
+  obtenerTarjeta.getTarjeta();
 
-     loadItems(){
-      this.storageService.getItems().then(items => {
-        this.items = items;
-      });
-    }
-
-  ngOnInit() {
-
-  }
-
-
-
-
-  /*
-  loadItems() {
-    this.storageService.getItems().then(items => {
-      this.items = items;
-    });
-  }
-*/
-
-
-  }
+}
 
 
 
 
 
+
+
+
+
+ngOnInit() {
+
+}
+
+
+
+
+}

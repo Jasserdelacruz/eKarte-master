@@ -12,7 +12,7 @@
 
 <ion-content>
   
-  <ion-button color="ekarteMorado" expand="block" size="large" (click)="tomarfoto()">
+  <ion-button color="ekarteMorado" expand="block" size="large" (click)="guardarTarjeta.tomarfoto()">
       <ion-icon name="add-circle-outline"></ion-icon>
     Capturar código
   </ion-button>
@@ -23,18 +23,22 @@
 
   <ion-item> 
   <ion-label> Nombre </ion-label>
-  <ion-input [(ngModel)] = "nombre"></ion-input>
+  <ion-input [(ngModel)] = "nombreTarjeta"></ion-input>
   </ion-item>  
 
-  <ion-item>
-  <ion-label>Empresa Asociada</ion-label>
-  <ion-input [(ngModel)] = "empresaAsociada"></ion-input>
+   <ion-item>
+    <ion-label>Empresa Asociada</ion-label>
+    <ion-select multiple="true" cancelText="Cancelar" okText="Aceptar">
+      <ion-select-option value="LaSirena">La Sirena</ion-select-option>
+      <ion-select-option value="ElBravo">El Bravo</ion-select-option>
+      <ion-select-option value="Payless">Payless</ion-select-option>
+    </ion-select>
   </ion-item>
 
 
   <ion-item>
       <ion-label>Fecha Expiracion</ion-label>
-      <ion-input [(ngModel)] = "fechaExpiracion"></ion-input>
+      <ion-input [(ngModel)] = "fechaExpiracionTarjeta"></ion-input>
   </ion-item>
 
 </ion-list>
@@ -42,7 +46,7 @@
 <ion-grid>
       <ion-row class="ion-align-items-center">
         <ion-col>
-          <ion-button (click)="getTarjeta()" color="ekarteMorado" href="/cartera">Guardar</ion-button>
+          <ion-button (click)="guardarDatos()" color="ekarteMorado" href="/cartera">Guardar</ion-button>
         </ion-col>
 
         <ion-col>
@@ -51,13 +55,7 @@
       </ion-row>
 </ion-grid>
 
- 
-{{listaTarjetas}}
-
-<ion-button (click)="setTheValue()">Set the value</ion-button>
-
-<ion-button (click)="deleteTarjeta()">Delete value</ion-button>
-
+<ion-button (click)="borrarTodasLasTarjetas()">Borrar todas</ion-button>
 
 
 <!-- 

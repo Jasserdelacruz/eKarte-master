@@ -21,6 +21,16 @@
           <ion-label>{{tarjeta.Empresa}}  ---- Puntos: {{tarjeta.Puntos}}</ion-label>
       </ion-item>
   </ion-list>
+
+  <ion-list ion-item *ngFor="let tarjeta of tarjetasfbcliente">
+    <ion-item>
+        <ion-avatar slot="start">
+            <img src="assets/imagenes/ekarteLogo.jpg">
+        </ion-avatar>
+        <ion-label>{{tarjeta.EmpresaAsociada}}  ---- Nombre: {{tarjeta.Nombre}}</ion-label>
+    </ion-item>
+</ion-list>
+
 </ion-content>
 
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">

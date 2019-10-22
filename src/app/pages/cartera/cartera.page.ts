@@ -2,6 +2,7 @@ import { Platform } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { StorageService, Item } from '../../servicios/storage.service';
 import { EmpresaService } from '../../servicios/empresa.service';
+import {AppfirebaseService} from '../../servicios/appfirebase.service';
 
 @Component({
   selector: 'app-cartera',
@@ -11,15 +12,15 @@ import { EmpresaService } from '../../servicios/empresa.service';
 export class CarteraPage implements OnInit {
 
   public tarjetas : any = [];
+  public tarjetasfbcliente : any = [];
 
-  constructor(private empresaService: EmpresaService) {
- 
-    /*
-    this.empresaService.getLocalData().subscribe(data => {
-        console.log("Local Data");
-        console.log(data);
-    });
-    */
+  constructor(private empresaService: EmpresaService, private db : AppfirebaseService) {
+    db.ObtenerTarjetas().then(arraytarjetas =>
+    {
+      this.tarjetasfbcliente=[];
+      this.tarjetasfbcliente = arraytarjetas;
+    }  
+    )
   }
 
   ngOnInit() {
@@ -39,7 +40,6 @@ export class CarteraPage implements OnInit {
       {
         console.log(error);
       };
-
       console.log (this.tarjetas);
   }
 }

@@ -1,8 +1,7 @@
 import { Platform } from '@ionic/angular';
-
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-import { AuthService} from '../../servicios/auth.service';
+import {AppfirebaseService} from '../../servicios/appfirebase.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { StorageService, Item } from '../../servicios/storage.service';
 
@@ -17,12 +16,14 @@ export class NuevaTarjetaPage implements OnInit {
 
 items: Item[] = [];
 newItem: Item = <Item>{};
-
+nombre:string;
+empresaasociada:string;
+fechaexpiracion:string
 foto: any;
 
 
 
-constructor(private camera: Camera, private auth : AuthService, private router : Router, private activatedRoute: ActivatedRoute, 
+constructor(private camera: Camera, private db : AppfirebaseService, private router : Router, private activatedRoute: ActivatedRoute, 
 private storageService: StorageService, private ptl: Platform) {
   this.ptl.ready().then(() => {
     this.loadItems();
@@ -36,13 +37,15 @@ loadItems(){
 }
 
 addItem(){
-  this.newItem.modified = Date.now();
-  this.newItem.id = Date.now();
-
-  this.storageService.addItem(this.newItem).then(item => {
-    this.newItem = <Item>{};
-    this.loadItems();
-  });
+  this.db.agregartarjeta(this.nombre,this.empresaasociada,this.fechaexpiracion).then(response =>
+  {
+    this.router.navigate(['/cartera']);
+  }
+  ).catch(error =>
+  {
+   // console.log(error);
+  }  
+    );
 }
   
   tomarfoto() {

@@ -28,13 +28,19 @@
 
   <ion-item>
   <ion-label>Empresa Asociada</ion-label>
-  <ion-input [(ngModel)] = "empresaasociada"></ion-input>
+    <ion-select [(ngModel)]= "empresaasociada" value="" okText="Aceptar" cancelText="Cancelar">
+      <ion-select-option value="La Sirena">La sirena</ion-select-option>
+      <ion-select-option value="Payless">Payless</ion-select-option>
+      <ion-select-option value="Jumbo">Jumbo</ion-select-option>
+      <ion-select-option value="Zara">Zara</ion-select-option>
+    </ion-select>
   </ion-item>
 
 
+
   <ion-item>
-      <ion-label>Fecha Expiracion</ion-label>
-      <ion-input [(ngModel)] = "fechaexpiracion"></ion-input>
+      <ion-label position="floating">Fecha Expiracion</ion-label>
+      <ion-input [(ngModel)] = "fechaexpiracion" (click)="SelectDate()" type="text"></ion-input>
   </ion-item>
 
 </ion-list>
@@ -51,14 +57,8 @@
       </ion-row>
 </ion-grid>
 
-<ion-item>
-  <ion-label position="fixed">Title</ion-label>
-  <ion-input [(ngModel)]="newItem.title"></ion-input>
-</ion-item>
 
-{{newItem.title}}
   
- 
 </ion-content>
 
 

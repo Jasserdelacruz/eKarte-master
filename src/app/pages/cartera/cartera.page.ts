@@ -10,7 +10,8 @@ import {AppfirebaseService} from '../../servicios/appfirebase.service';
   styleUrls: ['./cartera.page.scss'],
 })
 export class CarteraPage implements OnInit {
-
+  public LaSirena: any = 'assets\imagenes\La Sirena.png';
+  public logo: ImageData;
   public tarjetas : any = [];
   public tarjetasfbcliente : any = [];
 
@@ -19,8 +20,10 @@ export class CarteraPage implements OnInit {
     {
       this.tarjetasfbcliente=[];
       this.tarjetasfbcliente = arraytarjetas;
-    }  
-    )
+    })
+
+      
+
   }
 
   ngOnInit() {
@@ -41,5 +44,11 @@ export class CarteraPage implements OnInit {
         console.log(error);
       };
       console.log (this.tarjetas);
+  }
+
+  obtenerLogo() {
+    if (this.tarjetasfbcliente.tarjeta.EmpresaAsociada === 'La Sirena') {
+      this.logo = this.LaSirena;
+    }
   }
 }

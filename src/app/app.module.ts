@@ -19,6 +19,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
+import { DatePicker } from '@ionic-native/date-picker/ngx';
+import {DatePipe} from '@angular/common';
 
 
 
@@ -37,7 +39,9 @@ import { HttpClientModule } from '@angular/common/http';
     SplashScreen,
     Camera,
     AngularFirestore,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    DatePicker,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

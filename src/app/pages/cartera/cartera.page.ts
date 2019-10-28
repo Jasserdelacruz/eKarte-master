@@ -1,4 +1,8 @@
+import { Platform } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
+import { StorageService, Item } from '../../servicios/storage.service';
+import { EmpresaService } from '../../servicios/empresa.service';
+import {AppfirebaseService} from '../../servicios/appfirebase.service';
 
 @Component({
   selector: 'app-cartera',
@@ -6,10 +10,45 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cartera.page.scss'],
 })
 export class CarteraPage implements OnInit {
+  public LaSirena: any = 'assets\imagenes\La Sirena.png';
+  public logo: ImageData;
+  public tarjetas : any = [];
+  public tarjetasfbcliente : any = [];
 
-  constructor() { }
+  constructor(private empresaService: EmpresaService, private db : AppfirebaseService) {
+    db.ObtenerTarjetas().then(arraytarjetas =>
+    {
+      this.tarjetasfbcliente=[];
+      this.tarjetasfbcliente = arraytarjetas;
+    })
 
-  ngOnInit() {
+      
+
   }
 
+  ngOnInit() {
+    this.empresaService.getRemoteData().subscribe(
+      data =>
+      { 
+     //   console.log("Remote Data");
+    //    console.log(data);
+        const obj = (data as any);
+    //        const obj_json = JSON.parse(obj);
+        obj.forEach(element => {
+          this.tarjetas.push(element)
+        });
+        //console.log(obj);
+        //this.items = this.shapshotToArray (data);
+      }), error =>
+      {
+        console.log(error);
+      };
+      console.log (this.tarjetas);
+  }
+
+  obtenerLogo() {
+    if (this.tarjetasfbcliente.tarjeta.EmpresaAsociada === 'La Sirena') {
+      this.logo = this.LaSirena;
+    }
+  }
 }

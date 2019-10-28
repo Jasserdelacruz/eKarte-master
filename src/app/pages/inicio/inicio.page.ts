@@ -19,8 +19,16 @@ export class InicioPage implements OnInit {
   {
     this.authService.login(this.email,this.password).then(res => 
       {
-        this.router.navigate(['/mistarjetas']);
-      }).catch(err => alert ('Los datos son incorrectos o no existe el usuario'));
+        if (this.authService.emailverification()==true)
+         { 
+          this.router.navigate(['/mistarjetas']);
+         }
+         else
+         {
+           alert("Debe Verificarse, hemos enviado un Email a su correo que debe confirmar.")
+           this.authService.sendVerificationEmail();
+         }
+        }).catch(err => alert ('Los datos son incorrectos o no existe el usuario'));
     console.log("estas en la funcion")
   }
   

@@ -1,0 +1,65 @@
+<ion-header no-border  >
+    
+  <ion-toolbar padding class="background">
+
+   
+
+
+  <ion-title text-center color="light" >Nueva Tarjeta</ion-title> 
+  
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-button color="ekarteMorado" expand="block" size="large" (click)="tomarfoto()">
+      <ion-icon name="add-circle-outline"></ion-icon>
+    Capturar código
+  </ion-button>
+
+   <img [src]="foto" *ngIf="foto">
+
+   <ion-list>
+
+  <ion-item> 
+  <ion-label> Nombre </ion-label>
+  <ion-input [(ngModel)] = "nombre"></ion-input>
+  </ion-item>  
+
+  <ion-item>
+  <ion-label>Empresa Asociada</ion-label>
+    <ion-select [(ngModel)]= "empresaasociada" value="" okText="Aceptar" cancelText="Cancelar">
+      <ion-select-option value="La Sirena">La sirena</ion-select-option>
+      <ion-select-option value="Payless">Payless</ion-select-option>
+      <ion-select-option value="Jumbo">Jumbo</ion-select-option>
+      <ion-select-option value="Zara">Zara</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+
+  <ion-item>
+      <ion-label position="floating">Fecha Expiracion</ion-label>
+      <ion-input [(ngModel)] = "fechaexpiracion" (click)="SelectDate()" type="text"></ion-input>
+  </ion-item>
+
+</ion-list>
+
+<ion-grid>
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <ion-button (click)="addItem()" color="ekarteMorado">Guardar</ion-button>
+        </ion-col>
+
+        <ion-col>
+          <ion-button href="/cartera" color="ekarteMorado">Cancelar</ion-button>
+        </ion-col>
+      </ion-row>
+</ion-grid>
+
+
+  
+</ion-content>
+
+
+

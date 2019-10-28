@@ -18,18 +18,16 @@ export class CarteraPage implements OnInit {
 
   constructor(private empresaService: EmpresaService, private db : AppfirebaseService,private router : Router) {
 
-
-      
-
-  }
-
-  ngOnInit() {
-
     this.db.ObtenerTarjetas().then(arraytarjetas =>
       {
         this.tarjetasfbcliente=[];
         this.tarjetasfbcliente = arraytarjetas;
       })
+      
+
+  }
+
+  ngOnInit() {
 
     this.empresaService.getRemoteData().subscribe(
       data =>
@@ -62,14 +60,7 @@ export class CarteraPage implements OnInit {
     console.log(tarjeta)
     this.db.EliminarTarjeta(tarjeta).then(res => 
     {
-      this.db.ObtenerTarjetas().then(res =>
-        {
-          console.log("Aqui debe redireccionar:"+res);
-          window.location.reload();
-          this.router.navigate(['/cartera']);
-        }
-        )
-      ;
+      window.location.reload();
 
     }
     )

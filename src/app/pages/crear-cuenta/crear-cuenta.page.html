@@ -1,71 +1,66 @@
-<ion-header no-border  >
-    
-    <ion-toolbar padding class="background">
-
-      <ion-buttons slot="start">
-          <ion-back-button  defaultHref="/registro"></ion-back-button>
-    
-        </ion-buttons>
-
-    <ion-title color="light">Crear Cuenta</ion-title>
-  </ion-toolbar>
+<ion-header>
+  <ion-toolbar mode="ios"  class="background">
+   
+    <ion-title  color="light">
+      Crear Cuenta
+    </ion-title>
+   
+    <ion-buttons slot="start">
+        <ion-back-button  defaultHref="/registro"></ion-back-button>
+    </ion-buttons>
+</ion-toolbar>
 </ion-header>
 
+<ion-content class="ion-padding">
 
-  <ion-button color="ekarteMorado" expand="block" size="large" (click)="tomarfoto()">
-      <ion-icon name="add-circle-outline"></ion-icon>
-    Toma una foto
-  </ion-button>
-
-  <ion-button color="ekarteMorado" expand="block" size="large" (click)="elegirDeGaleria()">
-      <ion-icon name="add-circle-outline"></ion-icon>
-    Elegir de galería
-  </ion-button>
-  
-  <img [src]="foto" *ngIf="foto">
-
-
-
-<ion-content padding>
-
+<ion-button  expand="block" color="light" >Registrar con 
+  <ion-icon slot="end" name="logo-google"></ion-icon>
+</ion-button>
 
 <ion-list>
 
-  <ion-item> 
-  <ion-label color="primary">Nombre</ion-label>
-  <ion-input placeholder="Ingrese su nombre" [(ngModel)] = "nombre"></ion-input>
+<ion-item> 
+<ion-label color="primary">Nombre</ion-label>
+<ion-input class="ion-text-right" placeholder="Ingrese su nombre"></ion-input>
+</ion-item>  
+
+<ion-item>
+<ion-label color="primary">Apellido</ion-label>
+<ion-input class="ion-text-right" placeholder="Ingrese su apellido"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label color="primary">Género</ion-label>
+<ion-select placeholder="Seleccione uno">
+  <ion-select-option value="Masculino">Masculino</ion-select-option>
+  <ion-select-option value="Femenino">Femenino</ion-select-option>
+</ion-select>
+</ion-item>
+
+<ion-item>
+    <ion-label color="primary">Correo electronico</ion-label>
+    <ion-input class="ion-text-right" placeholder="Ejemplo@ejemplo.com"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label color="primary">Contraseña</ion-label>
+  <ion-input class="ion-text-right" placeholder="Ingrese su contraseña"></ion-input>
+</ion-item>
+
+<ion-item>
+    <ion-label color="primary">Confirmar Contraseña</ion-label>
+    <ion-input class="ion-text-right" placeholder="Repita su contraseña"></ion-input>
   </ion-item>  
 
-  <ion-item>
-  <ion-label color="primary">Apellido</ion-label>
-  <ion-input placeholder="Ingrese su apellido" [(ngModel)] = "apellido"></ion-input>
-  </ion-item>
 
-  <ion-item>
-    <ion-label color="primary">Género</ion-label>
-  <ion-select placeholder="Seleccione uno" [(ngModel)] = "genero">
-    <ion-select-option value="Masculino" >Masculino</ion-select-option>
-    <ion-select-option value="Femenino" >Femenino</ion-select-option>
-  </ion-select>
-  </ion-item>
-
-  <ion-item>
-      <ion-label color="primary">Correo electronico</ion-label>
-      <ion-input placeholder="ejemplo@ejemplo.com" type="email" [(ngModel)] = "email"></ion-input>
-  </ion-item>
-  
-  <ion-item>
-    <ion-label color="primary">Contraseña</ion-label>
-    <ion-input placeholder="Contraseña" type="password" [(ngModel)] = "password">
-    </ion-input>
-  </ion-item>
-
-  <ion-item>
-      <ion-label>Aceptar términos y condiciones</ion-label>
-      <ion-toggle></ion-toggle>
-  </ion-item>
+<ion-item>
+    <ion-label>Aceptar términos y condiciones</ion-label>
+    <ion-toggle></ion-toggle>
+</ion-item>
 
 </ion-list>
-  <ion-button color="secondary" expand="block" (click)="onSubmitRegister()">Enviar y continuar</ion-button>
-   
+<ion-button color="secondary" expand="block" routerLink="/crear-contrasena">Enviar y continuar</ion-button>
+ 
+
 </ion-content>
+

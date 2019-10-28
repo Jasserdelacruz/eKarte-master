@@ -11,52 +11,39 @@
 
 
   <ion-card color="light">
-      <ion-input placeholder="Usuario" type="email" [(ngModel)] = "email">
-          <ion-icon name="person" slot="start"></ion-icon>
+      <ion-input placeholder="Usuario" type="email" name="email">
+          <ion-icon name="person" slot="start" class="ion-icon"></ion-icon>
       </ion-input>
       
   </ion-card>
 
     <ion-card color="light">
-        <ion-input placeholder="Contraseña" type="password" [(ngModel)] = "password">
-            <ion-icon name="lock" slot="start"></ion-icon>
-            <ion-icon src="/path/to/external/file.svg"></ion-icon>
+        <ion-input placeholder="Contraseña" type="password" name="password"> 
+            <ion-icon name="lock" slot="start" class="ion-icon"></ion-icon>
         </ion-input>
 
     </ion-card>
 
     <ion-item color="transparent">
-        <ion-label>Mantener sesión iniciada</ion-label>
+        <ion-label>Mantener sesion iniciada</ion-label>
         <ion-toggle color="light"></ion-toggle>
     </ion-item>
     
     <ion-grid>
       <ion-row class="ion-align-items-center">
-        <ion-col>
-          <ion-button (click)="onSubmitLogin()" class="login-button" color="ekarteMorado">Iniciar Sesión</ion-button>
-        </ion-col>
-
-        <ion-col>
-          <ion-button class="login-button" routerLink="/registro" color="ekarteMorado">Registro</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-   
-    
-
-
-<ion-toolbar slot="" color="transparent">
+        <ion-button class="login-button" color="ekarteMorado">Iniciar Sección</ion-button>
+        
+               
+        <ion-text class="button" class="ion-paddingpersonal" color="Dark" routerLink="/recuperar-contrasena">¿Olvidó su contraseña?</ion-text>
       
-  <div><div class="row" style="height: 10px;">
-    
-      <h6 align="center" routerLink="/recuperar-contrasena">¿Olvidó su contraseña?</h6>
-     </div>
-  </div>
-      
-      
-    
-</ion-toolbar>
-</ion-content>
+  <ion-row class="ion-paddingpersonal-02">
+   <div>
+      ¿No tienes cuenta?<a routerLink='/crear-cuenta'>
+          Crea una</a> 
+ 
+        </div>
+    </ion-row>
+         
 
 
 

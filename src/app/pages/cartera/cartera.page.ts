@@ -28,16 +28,6 @@ export class CarteraPage implements OnInit {
 
   }
 
-  ngOnInit() {
-
-    this.db.ObtenerTarjetas().then(arraytarjetas =>
-      {
-        this.tarjetasfbcliente=[];
-        this.tarjetasfbcliente = arraytarjetas;
-      })
-      
-
-  }
 
   ngOnInit() {
 

@@ -23,6 +23,7 @@ export class CarteraPage implements OnInit {
       this.tarjetasfbcliente = arraytarjetas;
     })
 
+
       
 
   }
@@ -34,6 +35,11 @@ export class CarteraPage implements OnInit {
         this.tarjetasfbcliente=[];
         this.tarjetasfbcliente = arraytarjetas;
       })
+      
+
+  }
+
+  ngOnInit() {
 
     this.empresaService.getRemoteData().subscribe(
       data =>
@@ -66,13 +72,7 @@ export class CarteraPage implements OnInit {
     console.log(tarjeta)
     this.db.EliminarTarjeta(tarjeta).then(res => 
     {
-      this.db.ObtenerTarjetas().then(res =>
-        {
-          console.log("Aqui debe redireccionar:"+res);
-          window.location.reload();
-        }
-        )
-      ;
+      window.location.reload();
 
     }
     )

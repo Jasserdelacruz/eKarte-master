@@ -113,13 +113,11 @@ export class AppfirebaseService {
       console.log("UID: " + user.uid);
       this.db.collection('CUENTA').doc(user.uid).collection('Tarjeta').doc(Tarjeta).delete().then(res =>
        {
+         resolve("Tarjeta Eliminada");
         console.log(res)
-        this.ObtenerTarjetas();
-        resolve(res);
       }
         ).catch(err=>
         {
-          reject(err);
           console.log(err);
         }
         );

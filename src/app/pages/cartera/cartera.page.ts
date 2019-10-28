@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { StorageService, Item } from '../../servicios/storage.service';
 import { EmpresaService } from '../../servicios/empresa.service';
 import {AppfirebaseService} from '../../servicios/appfirebase.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-cartera',
@@ -15,14 +16,14 @@ export class CarteraPage implements OnInit {
   public tarjetas : any = [];
   public tarjetasfbcliente : any = [];
 
-  constructor(private empresaService: EmpresaService, private db : AppfirebaseService) {
+  constructor(private empresaService: EmpresaService, private db : AppfirebaseService, public alertController: AlertController) {
     db.ObtenerTarjetas().then(arraytarjetas =>
     {
       this.tarjetasfbcliente=[];
       this.tarjetasfbcliente = arraytarjetas;
     })
 
-      
+    
 
   }
 
@@ -51,4 +52,16 @@ export class CarteraPage implements OnInit {
       this.logo = this.LaSirena;
     }
   }
+
+  async informacionTarjeta(tarjeta, informacion) {
+    const alert = await this.alertController.create({
+      header: tarjeta,
+      subHeader: 'Informacion',
+      message: informacion,
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
 }

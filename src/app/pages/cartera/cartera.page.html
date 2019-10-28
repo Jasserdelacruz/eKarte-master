@@ -1,9 +1,35 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>cartera</ion-title>
-  </ion-toolbar>
+<ion-header no-border  >
+    
+  <ion-toolbar padding class="background">
+
+    <ion-buttons slot="start">
+        <ion-back-button  defaultHref="/mistarjetas"></ion-back-button>
+  
+      </ion-buttons>
+
+
+
+  <ion-title text-center color="light" >Cartera</ion-title> 
+  
+</ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+{{item.title}}
+
+
 </ion-content>
+
+
+ 
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button href="/nueva-tarjeta">
+    <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+</ion-fab> 
+
+
+
+
+

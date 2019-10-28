@@ -6,6 +6,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { StorageService, Item } from '../../servicios/storage.service';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
 import { DatePipe } from '@angular/common';
+import { EmpresaService } from '../../servicios/empresa.service';
 
 
 
@@ -23,11 +24,13 @@ newItem: Item = <Item>{};
 nombre:string;
 empresaasociada:string;
 fechaexpiracion:string = "";
+puntos:string = "No Consultados en Empresa";
 foto: any;
+public tarjetas : any = [];
+public tarjetaconsultada : any = []; 
+public codigoempresa : string;
 
-
-
-constructor(private camera: Camera, private db : AppfirebaseService, private router : Router, private activatedRoute: ActivatedRoute, 
+constructor(private empresaService: EmpresaService,private camera: Camera, private db : AppfirebaseService, private router : Router, private activatedRoute: ActivatedRoute, 
 private storageService: StorageService, private ptl: Platform, public datePicker: DatePicker, public datePipe: DatePipe, public platform: Platform) {
   this.ptl.ready().then(() => {
     this.fechaexpiracion = this.datePipe.transform(new Date(), "dd-MM-yyyy");
@@ -37,7 +40,7 @@ private storageService: StorageService, private ptl: Platform, public datePicker
 
 
 addItem(){
-  this.db.agregartarjeta(this.nombre, this.empresaasociada, this.fechaexpiracion).then(response =>
+  this.db.agregartarjeta(this.nombre, this.empresaasociada, this.fechaexpiracion,this.puntos).then(response =>
   {
     this.router.navigate(['/cartera']);
   }
@@ -47,7 +50,49 @@ addItem(){
   }  
     );
 }
-  
+
+AgregarTarjetaDesdeEmpresa()
+{
+    this.empresaService.getRemoteData().subscribe(
+      data =>
+      {
+        this.tarjetas=[];
+        this.tarjetaconsultada=[];
+     //   console.log("Remote Data");
+    //    console.log(data);
+        const obj = (data as any);
+    //        const obj_json = JSON.parse(obj);
+        obj.forEach(element => {
+          this.tarjetas.push(element);
+        });
+
+        this.tarjetas.forEach(tarjetafor => {
+          if (tarjetafor.CodigoTarjeta==this.codigoempresa)
+          {
+            this.nombre=tarjetafor.Cliente;
+            this.empresaasociada=tarjetafor.Empresa;
+            this.fechaexpiracion=tarjetafor.FechaVencimiento;
+            this.puntos=tarjetafor.Puntos;
+          }
+        });
+        console.log(this.tarjetaconsultada);
+
+ //       this.tarjetas.forEach(tarjetafor => {
+   //       console.log(tarjetafor.CodigoTarjeta)
+    //      if (tarjetafor.CodigoTarjeta=this.codigoempresa)
+     //       this.tarjetaconsultada.push(tarjetafor) 
+     //   });
+        //console.log(obj);
+        //this.items = this.shapshotToArray (data);
+      }), error =>
+      {
+        console.log(error);
+      };
+
+
+
+}
+
   tomarfoto() {
     const options: CameraOptions = {
       quality: 100,
@@ -82,6 +127,9 @@ addItem(){
 
 
   ngOnInit() {
+
+
+
   }
 
 }

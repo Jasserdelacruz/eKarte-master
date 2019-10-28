@@ -45,10 +45,18 @@
 
 </ion-list>
 
+<ion-item>
+  <ion-label position="floating">Codigo Afiliado Empresa</ion-label>
+  <ion-input [(ngModel)] = "codigoempresa"  type="text"></ion-input>
+</ion-item>
+
 <ion-grid>
       <ion-row class="ion-align-items-center">
         <ion-col>
           <ion-button (click)="addItem()" color="ekarteMorado">Guardar</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="AgregarTarjetaDesdeEmpresa()" color="ekarteMorado">Consultar Datos En Empresa</ion-button>
         </ion-col>
 
         <ion-col>

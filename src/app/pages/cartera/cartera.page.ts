@@ -59,11 +59,11 @@ export class CarteraPage implements OnInit {
 
   botoneliminar(tarjeta : string)
   {
+    this.tarjetasfbcliente=[];
     console.log(tarjeta)
     this.db.EliminarTarjeta(tarjeta).then(res => 
     {
       window.location.reload();
-
     }
     )
     

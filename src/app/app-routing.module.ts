@@ -14,7 +14,6 @@ const routes: Routes = [
   { path: 'acerca-de', loadChildren: './pages/acerca-de/acerca-de.module#AcercaDePageModule' },
   { path: 'ayuda', loadChildren: './pages/ayuda/ayuda.module#AyudaPageModule' },
   { path: 'nueva-tarjeta', loadChildren: './pages/nueva-tarjeta/nueva-tarjeta.module#NuevaTarjetaPageModule' },
-
 ];
 
 @NgModule({

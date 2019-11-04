@@ -25,7 +25,7 @@ export class AppfirebaseService {
 
   }
 
-  agregartarjeta(nombre:string,empresaasociada:string,fechaexpiracion:string,puntos:string)
+  agregartarjeta(nombre:string,empresaasociada:string,fechaexpiracion:string,puntos:string,pathimagen:string)
   {
     return new Promise ((resolve, reject) => 
     { 
@@ -42,7 +42,8 @@ export class AppfirebaseService {
                 Nombre : nombre,
                 EmpresaAsociada : empresaasociada,
                 FechaExpiracion : fechaexpiracion,
-                Puntos : puntos
+                Puntos : puntos,
+                PathImagen : pathimagen
               }).then(resinsert =>
               {
                 resolve("Datos insertados correctamente" + resinsert);

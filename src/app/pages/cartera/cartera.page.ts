@@ -1,6 +1,6 @@
 import { Platform } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
-import { StorageService, Item } from '../../servicios/storage.service';
+import { StorageService} from '../../servicios/storage.service';
 import { EmpresaService } from '../../servicios/empresa.service';
 import {AppfirebaseService} from '../../servicios/appfirebase.service';
 import { AlertController } from '@ionic/angular';

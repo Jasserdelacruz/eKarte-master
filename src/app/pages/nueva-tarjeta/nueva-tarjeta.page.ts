@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import {AppfirebaseService} from '../../servicios/appfirebase.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { StorageService, Item } from '../../servicios/storage.service';
+import { StorageService} from '../../servicios/storage.service';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
 import { DatePipe } from '@angular/common';
 import { EmpresaService } from '../../servicios/empresa.service';
@@ -19,8 +19,6 @@ import { EmpresaService } from '../../servicios/empresa.service';
 })
 export class NuevaTarjetaPage implements OnInit {
 
-items: Item[] = [];
-newItem: Item = <Item>{};
 nombre:string;
 empresaasociada:string;
 fechaexpiracion:string = "";
@@ -39,7 +37,7 @@ private storageService: StorageService, private ptl: Platform, public datePicker
 
 
 
-addItem(){
+addItem(idTarjeta){
   this.db.agregartarjeta(this.nombre, this.empresaasociada, this.fechaexpiracion,this.puntos).then(response =>
   {
     this.router.navigate(['/cartera']);
@@ -49,6 +47,8 @@ addItem(){
    // console.log(error);
   }  
     );
+
+  this.storageService.AgregarImagen(idTarjeta, this.foto);
 }
 
 AgregarTarjetaDesdeEmpresa()
@@ -124,6 +124,8 @@ AgregarTarjetaDesdeEmpresa()
     });
 
   }
+
+  
 
 
   ngOnInit() {

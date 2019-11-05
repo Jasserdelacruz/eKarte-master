@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'ajustes', loadChildren: './pages/ajustes/ajustes.module#AjustesPageModule' },
   { path: 'acerca-de', loadChildren: './pages/acerca-de/acerca-de.module#AcercaDePageModule' },
   { path: 'ayuda', loadChildren: './pages/ayuda/ayuda.module#AyudaPageModule' },
-  { path: 'nueva-tarjeta', loadChildren: './pages/nueva-tarjeta/nueva-tarjeta.module#NuevaTarjetaPageModule' },  { path: 'imagen-tarjeta', loadChildren: './pages/imagen-tarjeta/imagen-tarjeta.module#ImagenTarjetaPageModule' },
+  { path: 'nueva-tarjeta', loadChildren: './pages/nueva-tarjeta/nueva-tarjeta.module#NuevaTarjetaPageModule' },
+
 
 
 ];

@@ -1,12 +1,12 @@
 import { Platform } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import {AppfirebaseService} from '../../servicios/appfirebase.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { StorageService} from '../../servicios/storage.service';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
 import { DatePipe } from '@angular/common';
 import { EmpresaService } from '../../servicios/empresa.service';
+import { CapturarFotoService } from '../../servicios/capturar-foto.service';
 
 
 
@@ -19,17 +19,19 @@ import { EmpresaService } from '../../servicios/empresa.service';
 })
 export class NuevaTarjetaPage implements OnInit {
 
+imagen: any;
 nombre:string;
 empresaasociada:string;
 fechaexpiracion:string = "";
 puntos:string = "No Consultados en Empresa";
-foto: any;
 public tarjetas : any = [];
 public tarjetaconsultada : any = []; 
 public codigoempresa : string;
 
-constructor(private empresaService: EmpresaService,private camera: Camera, private db : AppfirebaseService, private router : Router, private activatedRoute: ActivatedRoute, 
-private storageService: StorageService, private ptl: Platform, public datePicker: DatePicker, public datePipe: DatePipe, public platform: Platform) {
+constructor(private empresaService: EmpresaService, private db : AppfirebaseService, private router : Router, 
+            private activatedRoute: ActivatedRoute, private storageService: StorageService, private ptl: Platform, 
+            public datePicker: DatePicker, public datePipe: DatePipe, public platform: Platform, private capturarFoto: CapturarFotoService) {
+
   this.ptl.ready().then(() => {
     this.fechaexpiracion = this.datePipe.transform(new Date(), "dd-MM-yyyy");
   });
@@ -37,7 +39,7 @@ private storageService: StorageService, private ptl: Platform, public datePicker
 
 
 
-addItem(idTarjeta){
+addItem(idTarjeta) {
   this.db.agregartarjeta(this.nombre, this.empresaasociada, this.fechaexpiracion,this.puntos).then(response =>
   {
     this.router.navigate(['/cartera']);
@@ -48,7 +50,7 @@ addItem(idTarjeta){
   }  
     );
 
-  this.storageService.AgregarImagen(idTarjeta, this.foto);
+  
 }
 
 AgregarTarjetaDesdeEmpresa()
@@ -94,22 +96,8 @@ AgregarTarjetaDesdeEmpresa()
 }
 
   tomarfoto() {
-    const options: CameraOptions = {
-      quality: 100,
-      sourceType: this.camera.PictureSourceType.CAMERA,
-      destinationType: this.camera.DestinationType.FILE_URI,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
-      saveToPhotoAlbum: true
-
-    };
-    this.camera.getPicture(options).then((imageData) => {
-     // imageData is either a base64 encoded string or a file URI
-     // If it's base64 (DATA_URL):
-     this.foto = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {
-     // Handle error
-    });
+    this.capturarFoto.CapturarFoto();
+    this.imagen = this.capturarFoto.foto;
   }
 
   SelectDate() {

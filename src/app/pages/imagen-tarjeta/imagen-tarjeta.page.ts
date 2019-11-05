@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform } from '@ionic/angular';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import {AppfirebaseService} from '../../servicios/appfirebase.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { StorageService} from '../../servicios/storage.service';
-import { DatePicker } from '@ionic-native/date-picker/ngx';
-import { DatePipe } from '@angular/common';
-import { EmpresaService } from '../../servicios/empresa.service';
+import { Input } from '@angular/core';
+import { NavParams, ModalController } from '@ionic/angular';
+import { CarteraPage } from '../cartera/cartera.page';
 
 @Component({
   selector: 'app-imagen-tarjeta',
@@ -17,13 +15,19 @@ import { EmpresaService } from '../../servicios/empresa.service';
 
 export class ImagenTarjetaPage implements OnInit {
 
-  tarjetaID;
-  imagen;
+  tarjetaID: string;
+  imagen: any;
 
-  constructor(storageservice: StorageService, datos: AppfirebaseService) {
-    datos.ObtenerTarjetas();
-    this.imagen = storageservice.ObtenerImagen(this.tarjetaID);
+  constructor(navParams: NavParams, storageService: StorageService, private modalCtrl: ModalController) {
+    this.tarjetaID = navParams.get('idTarjeta');
+    this.imagen = storageService.ObtenerImagen(this.tarjetaID);
    }
+
+   dismiss() {
+    this.modalCtrl.dismiss({
+      'dismissed': true
+    });
+  }
 
   ngOnInit() {
   }

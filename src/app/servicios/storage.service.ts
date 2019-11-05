@@ -13,7 +13,7 @@ AgregarImagen(idTarjeta, imagen) {
   this.storage.set(idTarjeta, imagen);
 }
 
-ObtenerImagen(idTarjeta) {
+ObtenerImagen(idTarjeta: string) {
   this.storage.get(idTarjeta).then((imagen) => {
     return imagen;
   });

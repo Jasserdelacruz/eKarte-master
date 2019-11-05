@@ -4,6 +4,10 @@ import { StorageService} from '../../servicios/storage.service';
 import { EmpresaService } from '../../servicios/empresa.service';
 import {AppfirebaseService} from '../../servicios/appfirebase.service';
 import { AlertController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
+import { ImagenTarjetaPage } from '../imagen-tarjeta/imagen-tarjeta.page';
+import { CapturarFotoService } from '../../servicios/capturar-foto.service';
+
 
 @Component({
   selector: 'app-cartera',
@@ -11,23 +15,33 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./cartera.page.scss'],
 })
 export class CarteraPage implements OnInit {
-  public LaSirena: any = 'assets\imagenes\La Sirena.png';
-  public logo: string;
   public tarjetas : any = [];
   public tarjetasfbcliente : any = [];
 
-  constructor(private empresaService: EmpresaService, private db : AppfirebaseService, public alertController: AlertController) {
+  constructor(private empresaService: EmpresaService, private db: AppfirebaseService, public alertController: AlertController,
+              public modalController: ModalController, private storageService: StorageService, private obtenerFoto: CapturarFotoService) {
+
     db.ObtenerTarjetas().then(arraytarjetas =>
     {
-      this.tarjetasfbcliente=[];
+      this.tarjetasfbcliente = [];
       this.tarjetasfbcliente = arraytarjetas;
-    })
+    });
 
-
-      
-
+    
   }
 
+  async presentModal(TarjetaID: string) {
+    this.storageService.AgregarImagen(TarjetaID, this.obtenerFoto.foto);
+    const modal = await this.modalController.create({
+      component: ImagenTarjetaPage,
+      componentProps: {
+        'idTarjeta': TarjetaID,
+
+      }
+    });
+    return await modal.present();
+    
+  }
 
   ngOnInit() {
 
@@ -47,15 +61,9 @@ export class CarteraPage implements OnInit {
       {
         console.log(error);
       };
-      console.log (this.tarjetas);
+    console.log (this.tarjetas);
   }
 
-  obtenerLogo() {
-    if (this.tarjetasfbcliente.tarjeta.EmpresaAsociada === 'La Sirena') {
-      this.logo = this.LaSirena;
-    }
-    return "assets\imagenes\Jumbo.png";
-  }
 
   botoneliminar(tarjeta : string)
   {

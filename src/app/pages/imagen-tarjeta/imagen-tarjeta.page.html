@@ -1,18 +1,20 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Imagen Tarjeta</ion-title>
-  </ion-toolbar>
+<ion-header no-border  >
+    
+  <ion-toolbar padding class="background">
+
+  <ion-title text-center color="light" >Imagen Tarjeta</ion-title> 
+  
+</ion-toolbar>
 </ion-header>
 
-<script>
-tarjetaID = Tarjeta.UID; 
-</script>
 
 
 <ion-content>
 
 <ion-card>
-<img src="imagen" />
+<p align="center"><img src="{{imagen}}"/></p>
 </ion-card>
+
+<ion-button expand="full" (click)="dismiss()"> OK </ion-button>
 
 </ion-content>

@@ -25,6 +25,7 @@ import {DatePipe} from '@angular/common';
 
 
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -32,16 +33,17 @@ import {DatePipe} from '@angular/common';
   NoopAnimationsModule, AppRoutingModule,
   AngularFireModule.initializeApp(firebaseConfig),
   AngularFireAuthModule, AngularFireStorageModule,
-  IonicStorageModule.forRoot()
+  IonicStorageModule.forRoot(),
+
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Camera,
     AngularFirestore,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     DatePicker,
-    DatePipe
+    DatePipe,
   ],
   bootstrap: [AppComponent]
 })

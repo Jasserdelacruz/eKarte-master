@@ -7,15 +7,16 @@ import { Injectable } from '@angular/core';
 })
 export class StorageService {
 
+imagen: any;
   constructor(private storage: Storage) { }
 
-AgregarImagen(idTarjeta, imagen) {
+AgregarImagen(idTarjeta: string, imagen: any) {
   this.storage.set(idTarjeta, imagen);
 }
 
-ObtenerImagen(idTarjeta: string) {
-  this.storage.get(idTarjeta).then((imagen) => {
-    return imagen;
+ObtenerImagen(idFoto: string) {
+  this.storage.get(idFoto).then((img) => {
+   this.imagen = img;
   });
 }
 

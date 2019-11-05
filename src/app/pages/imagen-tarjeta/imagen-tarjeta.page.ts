@@ -20,7 +20,8 @@ export class ImagenTarjetaPage implements OnInit {
 
   constructor(navParams: NavParams, storageService: StorageService, private modalCtrl: ModalController) {
     this.tarjetaID = navParams.get('idTarjeta');
-    this.imagen = storageService.ObtenerImagen(this.tarjetaID);
+    storageService.ObtenerImagen(this.tarjetaID);
+    this.imagen = storageService.imagen;
    }
 
    dismiss() {

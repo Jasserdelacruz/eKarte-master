@@ -30,12 +30,12 @@ export class CarteraPage implements OnInit {
     
   }
 
-  async presentModal(TarjetaID: string) {
-    this.storageService.AgregarImagen(TarjetaID, this.obtenerFoto.foto);
+  async presentModal(IDTarjeta: string) {
+    this.storageService.AgregarImagen(IDTarjeta, this.storageService.imagen);
     const modal = await this.modalController.create({
       component: ImagenTarjetaPage,
       componentProps: {
-        'idTarjeta': TarjetaID,
+        'idTarjeta': IDTarjeta,
 
       }
     });

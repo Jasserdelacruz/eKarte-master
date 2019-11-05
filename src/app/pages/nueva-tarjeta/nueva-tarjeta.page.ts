@@ -35,6 +35,7 @@ constructor(private empresaService: EmpresaService, private db : AppfirebaseServ
   this.ptl.ready().then(() => {
     this.fechaexpiracion = this.datePipe.transform(new Date(), "dd-MM-yyyy");
   });
+
  }
 
 
@@ -97,7 +98,7 @@ AgregarTarjetaDesdeEmpresa()
 
   tomarfoto() {
     this.capturarFoto.CapturarFoto();
-    this.imagen = this.capturarFoto.foto;
+    this.imagen = this.storageService.imagen;
   }
 
   SelectDate() {

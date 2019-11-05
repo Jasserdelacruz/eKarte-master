@@ -26,6 +26,7 @@ import {DatePipe} from '@angular/common';
 
 
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -44,6 +45,8 @@ import {DatePipe} from '@angular/common';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     DatePicker,
     DatePipe,
+    Camera,
+
   ],
   bootstrap: [AppComponent]
 })

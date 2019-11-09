@@ -4,8 +4,6 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { MenuComponent } from './components/menu/menu.component';
-import { RegistroPage } from './pages/registro/registro.page';
-import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-root',
@@ -13,12 +11,10 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  rootPage: any = RegistroPage;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
-    public afauth: AngularFireAuth
+    private statusBar: StatusBar
   ) {
     this.initializeApp();
   }

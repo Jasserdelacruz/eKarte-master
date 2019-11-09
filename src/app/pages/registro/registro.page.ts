@@ -1,10 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as firebase from 'firebase/app';
-import { AuthService } from '../../servicios/auth.service';
-import { GooglePlus } from '@ionic-native/google-plus/ngx';
-import { Observable } from 'rxjs';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-registro',
@@ -12,20 +6,10 @@ import { Platform } from '@ionic/angular';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage implements OnInit {
-  ngOnInit() {}
 
+  constructor() { }
 
-  constructor(private afAuth: AngularFireAuth, private gplus: GooglePlus, public afauth: AngularFireAuth) {
+  ngOnInit() {
   }
-
-  login() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-  }
-
-  logout() {
-    this.afAuth.auth.signOut();
-  }
-
-
 
 }

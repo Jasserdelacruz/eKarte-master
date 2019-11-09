@@ -18,8 +18,6 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
 import { AngularFirestore } from '@angular/fire/firestore';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { IonicStorageModule } from '@ionic/storage';
-import { GooglePlus } from '@ionic-native/google-plus/ngx';
-import { ComponentsModule } from './components/menu/components.module';
 
 
 
@@ -31,12 +29,11 @@ import { ComponentsModule } from './components/menu/components.module';
   NoopAnimationsModule, AppRoutingModule,
   AngularFireModule.initializeApp(firebaseConfig),
   AngularFireAuthModule, AngularFireStorageModule,
-  IonicStorageModule.forRoot(), ComponentsModule
+  IonicStorageModule.forRoot()
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    GooglePlus,
     Camera,
     AngularFirestore,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

@@ -16,6 +16,8 @@ const routes: Routes = [
   { path: 'nueva-tarjeta', loadChildren: './pages/nueva-tarjeta/nueva-tarjeta.module#NuevaTarjetaPageModule' },
 ];
 
+];
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),

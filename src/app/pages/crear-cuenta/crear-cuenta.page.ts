@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { AuthService} from '../../servicios/auth.service';
 import { Router } from '@angular/router';
+import { ModalController,  } from '@ionic/angular';
+import {TerminosCondicionesPage} from '../terminos-condiciones/terminos-condiciones.page';
 
 @Component({
   selector: 'app-crear-cuenta',
@@ -11,6 +13,7 @@ import { Router } from '@angular/router';
 export class CrearCuentaPage implements OnInit {
 
   foto: any;
+  ModalController: any;
   public nombre : string;
   public apellido : string;
   public genero : string;
@@ -67,6 +70,12 @@ export class CrearCuentaPage implements OnInit {
       console.log(auth)
     }
     ).catch(err =>console.log(err))
+  }
+  async openModal() {
+    var modal = await this.modalController.create({
+      component: TerminosCondicionesPage
+    });
+    return await modal.present();
   }
 
   ngOnInit() {

@@ -4,6 +4,10 @@ import { StorageService, Item } from '../../servicios/storage.service';
 import { EmpresaService } from '../../servicios/empresa.service';
 import {AppfirebaseService} from '../../servicios/appfirebase.service';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
+
+import { File } from '@ionic-native/file/ngx';
+import { PhotoViewer,PhotoViewerOptions } from '@ionic-native/photo-viewer/ngx';
 
 @Component({
   selector: 'app-cartera',
@@ -16,7 +20,8 @@ export class CarteraPage implements OnInit {
   public tarjetas : any = [];
   public tarjetasfbcliente : any = [];
 
-  constructor(private empresaService: EmpresaService, private db : AppfirebaseService, public alertController: AlertController) {
+  constructor(private photoViewer: PhotoViewer,
+    private file: File, private router: Router,private empresaService: EmpresaService, private db : AppfirebaseService, public alertController: AlertController) {
     db.ObtenerTarjetas().then(arraytarjetas =>
     {
       this.tarjetasfbcliente=[];
@@ -27,8 +32,6 @@ export class CarteraPage implements OnInit {
       
 
   }
-
-
   ngOnInit() {
 
     this.empresaService.getRemoteData().subscribe(
@@ -59,11 +62,11 @@ export class CarteraPage implements OnInit {
 
   botoneliminar(tarjeta : string)
   {
+    this.tarjetasfbcliente=[];
     console.log(tarjeta)
     this.db.EliminarTarjeta(tarjeta).then(res => 
     {
       window.location.reload();
-
     }
     )
     
@@ -83,4 +86,13 @@ export class CarteraPage implements OnInit {
     await alert.present();
   }
 
+  viewPhoto(url:string) {
+    const option: PhotoViewerOptions =
+    {
+      share: true
+    }
+
+    this.photoViewer.show(url,"Imagen Barra Tarjeta",option)
+   // alert(url);
+  }
 }

@@ -21,7 +21,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
 import {DatePipe} from '@angular/common';
-
+import { File } from '@ionic-native/file/ngx';
+import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 
 
 
@@ -38,7 +39,9 @@ import {DatePipe} from '@angular/common';
     StatusBar,
     SplashScreen,
     Camera,
-    AngularFirestore,
+    AngularFirestore,   
+    File,
+    PhotoViewer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     DatePicker,
     DatePipe

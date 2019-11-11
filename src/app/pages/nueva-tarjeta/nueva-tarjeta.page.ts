@@ -7,9 +7,8 @@ import { StorageService, Item } from '../../servicios/storage.service';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
 import { DatePipe } from '@angular/common';
 import { EmpresaService } from '../../servicios/empresa.service';
-
-
-
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 
 
 @Component({
@@ -31,8 +30,10 @@ public tarjetas : any = [];
 public tarjetaconsultada : any = []; 
 public codigoempresa : string;
 
-constructor(private empresaService: EmpresaService,private camera: Camera, private db : AppfirebaseService, private router : Router, private activatedRoute: ActivatedRoute, 
-private storageService: StorageService, private ptl: Platform, public datePicker: DatePicker, public datePipe: DatePipe, public platform: Platform) {
+constructor(private empresaService: EmpresaService, private camera: Camera, private db : AppfirebaseService, private router: Router,
+            private activatedRoute: ActivatedRoute, private storageService: StorageService, private ptl: Platform,
+            public datePicker: DatePicker, public datePipe: DatePipe, public platform: Platform, private escanerBarra: BarcodeScanner,
+            private escanerQR: QRScanner ) {
   this.ptl.ready().then(() => {
     this.fechaexpiracion = this.datePipe.transform(new Date(), "dd-MM-yyyy");
   });
@@ -95,23 +96,39 @@ AgregarTarjetaDesdeEmpresa()
 
 }
 
-  tomarfoto() {
-    const options: CameraOptions = {
-      quality: 100,
-      sourceType: this.camera.PictureSourceType.CAMERA,
-      destinationType: this.camera.DestinationType.FILE_URI,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
-      saveToPhotoAlbum: true
-
-    };
-    this.camera.getPicture(options).then((imageData) => {
-     // imageData is either a base64 encoded string or a file URI
-     // If it's base64 (DATA_URL):
-     this.foto = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {
-     // Handle error
+  EscanearCodigoBarras() {
+    this.escanerBarra.scan().then(codigoBarraData => {
+      console.log('Barcode data', codigoBarraData);
+    }).catch(err => {
+      console.log('Error', err);
     });
+
+  }
+
+  EscanearCodigoQR() {
+    // Optionally request the permission early
+    this.escanerQR.prepare().then((status: QRScannerStatus) => {
+    if (status.authorized) {
+     // camera permission was granted
+
+
+     // start scanning
+     let scanSub = this.escanerQR.scan().subscribe((text: string) => {
+       console.log('Scanned something', text);
+
+       this.escanerQR.hide(); // hide camera preview
+       scanSub.unsubscribe(); // stop scanning
+     });
+
+    } else if (status.denied) {
+     // camera permission was permanently denied
+     // you must use QRScanner.openSettings() method to guide the user to the settings page
+     // then they can grant the permission from there
+    } else {
+     // permission was denied, but not permanently. You can ask for permission again at a later time.
+   }
+   }).catch((e: any) => console.log('Error is', e));
+
   }
 
   SelectDate() {

@@ -1,3 +1,5 @@
+import { QRScanner } from '@ionic-native/qr-scanner/ngx';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -44,12 +46,14 @@ import {NgxBarcodeModule} from 'ngx-barcode';
     StatusBar,
     SplashScreen,
     Camera,
-    AngularFirestore,   
+    AngularFirestore,
     File,
     PhotoViewer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     DatePicker,
-    DatePipe
+    DatePipe,
+    BarcodeScanner,
+    QRScanner
   ],
   bootstrap: [AppComponent]
 })

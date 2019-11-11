@@ -26,6 +26,7 @@ empresaasociada:string;
 fechaexpiracion:string = "";
 puntos:string = "No Consultados en Empresa";
 pathimagen:string = "Imagen no agregada desde Empresas";
+codigotarjeta: string = ""
 foto: any;
 public tarjetas : any = [];
 public tarjetaconsultada : any = []; 
@@ -41,7 +42,7 @@ private storageService: StorageService, private ptl: Platform, public datePicker
 
 
 addItem(){
-  this.db.agregartarjeta(this.nombre, this.empresaasociada, this.fechaexpiracion,this.puntos, this.pathimagen).then(response =>
+  this.db.agregartarjeta(this.nombre, this.empresaasociada, this.fechaexpiracion,this.puntos, this.pathimagen,this.codigotarjeta).then(response =>
   {
     this.router.navigate(['/cartera']);
   }
@@ -75,6 +76,7 @@ AgregarTarjetaDesdeEmpresa()
             this.fechaexpiracion=tarjetafor.FechaVencimiento;
             this.puntos=tarjetafor.Puntos;
             this.pathimagen=tarjetafor.URLImgTarjeta;
+            this.codigotarjeta=tarjetafor.CodigoTarjeta
           }
         });
         console.log(this.tarjetaconsultada);

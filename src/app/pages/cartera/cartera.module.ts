@@ -7,7 +7,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { CarteraPage } from './cartera.page';
-
+import { ModalImagentarjetaPage } from '../modal-imagentarjeta/modal-imagentarjeta.page';
+import { ModalImagentarjetaPageModule } from '../modal-imagentarjeta/modal-imagentarjeta.module';
 
 
 
@@ -20,19 +21,16 @@ const routes: Routes = [
 
 @NgModule({
   entryComponents: [
- 
+      ModalImagentarjetaPage
   
   ],
   imports: [
+    ModalImagentarjetaPageModule,
     CommonModule,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
     ComponentsModule,
-
-    
- 
-
   ],
   declarations: [CarteraPage]
 })

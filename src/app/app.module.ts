@@ -23,17 +23,22 @@ import { DatePicker } from '@ionic-native/date-picker/ngx';
 import {DatePipe} from '@angular/common';
 import { File } from '@ionic-native/file/ngx';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
-
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+import {NgxBarcodeModule} from 'ngx-barcode';
 
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [HttpClientModule,BrowserModule, IonicModule.forRoot(),
+  imports: [
+    BrowserModule,
+    NgxQRCodeModule,
+    NgxBarcodeModule,
+    HttpClientModule, IonicModule.forRoot(),
   NoopAnimationsModule, AppRoutingModule,
   AngularFireModule.initializeApp(firebaseConfig),
   AngularFireAuthModule, AngularFireStorageModule,
-  IonicStorageModule.forRoot()
+  IonicStorageModule.forRoot(),
   ],
   providers: [
     StatusBar,

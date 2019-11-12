@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar class="ion-padding" color="primary">
-    <ion-title text-capitalize>Tarjeta: {{CodigoTarjeta}}</ion-title>
+    <ion-title text-capitalize>Imagen Código Tarjeta</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -9,7 +9,7 @@
         <ngx-qrcode  [qrc-value]='CodigoTarjetaQR'></ngx-qrcode>  
     </ion-card>
     <ion-card  *ngIf="CodigoTarjeta">
-        <ngx-barcode [bc-value]='CodigoTarjeta' [bc-display-value]="false"></ngx-barcode>
+        <ngx-barcode [bc-value]='CodigoTarjeta' [bc-display-value]="true"></ngx-barcode>
     </ion-card>
     
   <ion-button color="primary" (click)="salirSinArgumentos()" extand="full">Salir</ion-button>

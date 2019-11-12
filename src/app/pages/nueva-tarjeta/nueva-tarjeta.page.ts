@@ -101,6 +101,7 @@ AgregarTarjetaDesdeEmpresa()
   EscanearCodigoBarras() {
     this.escanerBarra.scan().then(codigoBarraData => {
       console.log('Barcode data', codigoBarraData);
+      this.codigotarjeta=''+codigoBarraData.text;
     }).catch(err => {
       console.log('Error', err);
     });

@@ -6,8 +6,30 @@
 
 .login-button {
     width: 100%;
-  --border-radius: 10% !important;
+  --border-radius: 1% !important;
+  --text-align: center;
+  }
+
+  .ion-icon{
+    font-size: 25px;
+  }
+
+.ion-paddingpersonal {
+  padding : 0 93px ;
 }
+
+.ion-paddingpersonal-02 {
+  padding : 0 75px ;
+  height: 80px ;
+}
+
+a{
+  color: #fff;
+}
+
+
+
+
 
 .background {
   --background: url(/assets/imagenes/Plantilla1.png) 0 0/100% 100% no-repeat;

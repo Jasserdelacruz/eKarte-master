@@ -13,9 +13,7 @@ export class ModalImagentarjetaPage implements OnInit {
   constructor(private modalCtrl : ModalController) {
     if (1==1)
     {
- 
       this.CodigoTarjetaBarCode = this.CodigoTarjeta;
-      console.log(this.CodigoTarjeta);
     }
     else
     {

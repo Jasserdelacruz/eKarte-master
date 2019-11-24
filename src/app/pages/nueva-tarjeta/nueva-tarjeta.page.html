@@ -12,12 +12,17 @@
 
 <ion-content>
   
-  <ion-button color="ekarteMorado" expand="block" size="large" (click)="tomarfoto()">
+  <ion-button color="ekarteMorado" expand="block" size="large" (click)="EscanearCodigoBarras()">
       <ion-icon name="add-circle-outline"></ion-icon>
-    Capturar código
+    Capturar código de barras
   </ion-button>
 
-   <img [src]="foto" *ngIf="foto">
+  <ion-button color="ekarteMorado" expand="block" size="large" (click)="EscanearCodigoQR()">
+      <ion-icon name="add-circle-outline"></ion-icon>
+    Capturar código QR
+  </ion-button>
+
+  <ion-card *ngIf="codigotarjeta">Código Escaneado:{{codigotarjeta}}</ion-card>
 
    <ion-list>
 

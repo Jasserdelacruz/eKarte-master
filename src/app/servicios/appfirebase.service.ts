@@ -11,6 +11,7 @@ interface tarjeta
   Nombre : String
   UID : String
   Puntos: String
+  CodigoTarjeta: String
 }
 
 @Injectable({
@@ -19,13 +20,12 @@ interface tarjeta
 export class AppfirebaseService {
   public tarjetas : Array<Object> = [];
   private User : any;
-
   constructor( private db: AngularFirestore, private AFauth: AngularFireAuth) 
   { 
 
   }
 
-  agregartarjeta(nombre:string,empresaasociada:string,fechaexpiracion:string,puntos:string,pathimagen:string)
+  agregartarjeta(nombre:string,empresaasociada:string,fechaexpiracion:string,puntos:string,pathimagen:string,codigotarjeta:string)
   {
     return new Promise ((resolve, reject) => 
     { 
@@ -43,7 +43,8 @@ export class AppfirebaseService {
                 EmpresaAsociada : empresaasociada,
                 FechaExpiracion : fechaexpiracion,
                 Puntos : puntos,
-                PathImagen : pathimagen
+                PathImagen : pathimagen,
+                CodigoTarjeta : codigotarjeta
               }).then(resinsert =>
               {
                 resolve("Datos insertados correctamente" + resinsert);

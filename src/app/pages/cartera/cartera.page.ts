@@ -1,13 +1,12 @@
-import { Platform } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
-import { StorageService, Item } from '../../servicios/storage.service';
 import { EmpresaService } from '../../servicios/empresa.service';
 import {AppfirebaseService} from '../../servicios/appfirebase.service';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
-
 import { File } from '@ionic-native/file/ngx';
 import { PhotoViewer,PhotoViewerOptions } from '@ionic-native/photo-viewer/ngx';
+import {NavController, ModalController} from '@ionic/angular';
+import {ModalImagentarjetaPage} from '../modal-imagentarjeta/modal-imagentarjeta.page';
 
 @Component({
   selector: 'app-cartera',
@@ -20,7 +19,7 @@ export class CarteraPage implements OnInit {
   public tarjetas : any = [];
   public tarjetasfbcliente : any = [];
 
-  constructor(private photoViewer: PhotoViewer,
+  constructor(private nav: NavController, private modalCtrl: ModalController, private photoViewer: PhotoViewer,
     private file: File, private router: Router,private empresaService: EmpresaService, private db : AppfirebaseService, public alertController: AlertController) {
     db.ObtenerTarjetas().then(arraytarjetas =>
     {
@@ -94,5 +93,22 @@ export class CarteraPage implements OnInit {
 
     this.photoViewer.show(url,"Imagen Barra Tarjeta",option)
    // alert(url);
+  }
+
+  async openModal(codigotarjeta:string)
+  {
+   const modal = await this.modalCtrl.create(
+      {
+        component: ModalImagentarjetaPage ,
+        componentProps: 
+        {
+          CodigoTarjeta: codigotarjeta
+        }
+
+      }
+    )
+    await modal.present();
+  //  console.log("nav"); 
+   // this.nav.navigateForward(['/modal-cig',codigotarjeta]);
   }
 }

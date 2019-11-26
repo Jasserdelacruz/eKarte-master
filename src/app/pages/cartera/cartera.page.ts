@@ -7,7 +7,6 @@ import { File } from '@ionic-native/file/ngx';
 import { PhotoViewer,PhotoViewerOptions } from '@ionic-native/photo-viewer/ngx';
 import {NavController, ModalController} from '@ionic/angular';
 import {ModalImagentarjetaPage} from '../modal-imagentarjeta/modal-imagentarjeta.page';
-import { get } from 'http';
 
 @Component({
   selector: 'app-cartera',

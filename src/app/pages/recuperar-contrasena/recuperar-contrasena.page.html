@@ -1,17 +1,26 @@
-<ion-header  no-border>
 
-  <ion-toolbar>
+<ion-header no-border  >
+    
+    <ion-toolbar padding class="background">
+
       <ion-buttons slot="start">
           <ion-back-button  defaultHref="/inicio"></ion-back-button>
     
         </ion-buttons>
-    <ion-title>Recuperar Contraseña</ion-title>
+
+    <ion-title color="light" align="center">Recuperar contraseña</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content id="ion-content-recuperar-contrasena">
+  
+    <h3 align="center"> 
+    Introduzca el correo con el cual se registró y le enviaremos 
+    un mensaje para restablecer su contraseña.
+    </h3>
+  
   <ion-item>
-    <ion-label color="primary">Correo electronico</ion-label>
+    <ion-label>Correo electronico</ion-label>
     <ion-input placeholder="ejemplo@ejemplo.com" type="email" [(ngModel)] = "email"></ion-input>
   </ion-item>
   <ion-button color="secondary" expand="block" (click)="onResetEmail()">Enviar y continuar</ion-button>

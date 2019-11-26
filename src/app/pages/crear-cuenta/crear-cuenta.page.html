@@ -3,27 +3,13 @@
     <ion-toolbar padding class="background">
 
       <ion-buttons slot="start">
-          <ion-back-button  defaultHref="/registro"></ion-back-button>
+          <ion-back-button  defaultHref="/inicio"></ion-back-button>
     
         </ion-buttons>
 
-    <ion-title color="light">Crear Cuenta</ion-title>
+    <ion-title color="light" align="center">Crear Cuenta</ion-title>
   </ion-toolbar>
 </ion-header>
-
-
-  <ion-button color="ekarteMorado" expand="block" size="large" (click)="tomarfoto()">
-      <ion-icon name="add-circle-outline"></ion-icon>
-    Toma una foto
-  </ion-button>
-
-  <ion-button color="ekarteMorado" expand="block" size="large" (click)="elegirDeGaleria()">
-      <ion-icon name="add-circle-outline"></ion-icon>
-    Elegir de galería
-  </ion-button>
-  
-  <img [src]="foto" *ngIf="foto">
-
 
 
 <ion-content padding>
@@ -32,17 +18,17 @@
 <ion-list>
 
   <ion-item> 
-  <ion-label color="primary">Nombre</ion-label>
+  <ion-label>Nombre</ion-label>
   <ion-input placeholder="Ingrese su nombre" [(ngModel)] = "nombre"></ion-input>
   </ion-item>  
 
   <ion-item>
-  <ion-label color="primary">Apellido</ion-label>
+  <ion-label>Apellido</ion-label>
   <ion-input placeholder="Ingrese su apellido" [(ngModel)] = "apellido"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label color="primary">Género</ion-label>
+    <ion-label>Género</ion-label>
   <ion-select placeholder="Seleccione uno" [(ngModel)] = "genero">
     <ion-select-option value="Masculino" >Masculino</ion-select-option>
     <ion-select-option value="Femenino" >Femenino</ion-select-option>
@@ -50,21 +36,20 @@
   </ion-item>
 
   <ion-item>
-      <ion-label color="primary">Correo electronico</ion-label>
+      <ion-label>Correo electronico</ion-label>
       <ion-input placeholder="ejemplo@ejemplo.com" type="email" [(ngModel)] = "email"></ion-input>
   </ion-item>
   
   <ion-item>
-    <ion-label color="primary">Contraseña</ion-label>
+    <ion-label>Contraseña</ion-label>
     <ion-input placeholder="Contraseña" type="password" [(ngModel)] = "password">
     </ion-input>
   </ion-item>
 
   <ion-item>
-      <ion-label> </ion-label>
         <a (click) ="openModal()">Aceptar términos y condiciones</a>
 
-      <ion-toggle></ion-toggle>
+      <ion-toggle slot="end"></ion-toggle>
   </ion-item>
 
 </ion-list>

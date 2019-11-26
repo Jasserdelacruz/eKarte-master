@@ -32,30 +32,20 @@
   </ion-item>
 
 
+    
+      <ion-button (click)="onSubmitLogin()" class="login-button" color="ekarteMorado" expand="full">Iniciar Sección</ion-button>
 
 
 
+      <section align="center"> 
+        <ion-text class="ion-paddingpersonal" color="Dark">¿Olvidó su contraseña? <a routerLink="/recuperar-contrasena">Pulse aquí</a></ion-text>
 
-
-  <ion-grid>
-    <ion-row class="ion-align-items-center">
-        <ion-button (click)="onSubmitLogin()" class="login-button" color="ekarteMorado">Iniciar Sección</ion-button>
-
-
-
-       
-        <ion-text class="ion-paddingpersonal" color="Dark" routerLink="/recuperar-contrasena">¿Olvidó su contraseña?
+        <ion-text class="ion-paddingpersonal-02">¿No tienes cuenta? <a routerLink='/crear-cuenta'>Crea una</a>
         </ion-text>
+      </section>
+  
 
-        <ion-row class="ion-paddingpersonal-02">
-            <div>
-                ¿No tienes cuenta?<a routerLink='/crear-cuenta'>
-                    Crea una</a>
-            </div>
-        </ion-row>
-
-
-
+    </ion-content>
      
       <!-- <ion-col>
         <ion-button class="login-button" routerLink="/registro" color="ekarteMorado">Registro</ion-button>

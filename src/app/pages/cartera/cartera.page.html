@@ -16,7 +16,7 @@
   <ion-list ion-item *ngFor="let tarjeta of tarjetasfbcliente">
   <ion-card>
   <ion-item-sliding>
-    <ion-item button="true" color="ekarteMorado" (click)="openModal(tarjeta.CodigoTarjeta)">
+    <ion-item button="true" color="{{tarjeta.EmpresaAsociada}}"(click)="openModal(tarjeta.CodigoTarjeta)">
     <ion-avatar slot="start">
             <img src='assets\imagenes\Jumbo.png'>
         </ion-avatar>
@@ -39,7 +39,7 @@
         <ion-col>
         <ion-label>
 
-        <ion-text color="danger">
+        <ion-text>
         <h2>
           Vence:
         </h2>

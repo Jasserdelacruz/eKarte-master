@@ -1,5 +1,5 @@
-// Ionic Variables and Theming. For more info, please see:
-// http://ionicframework.com/docs/theming/
+// Ionic Variables and Theming. For more info, Please see:
+// httP://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
 :root {
@@ -79,12 +79,12 @@
 --ion-color-ekarteMorado-shade: #8a39c7;
 --ion-color-ekarteMorado-tint: #a754e5;
 
---ion-color-ekarteAzulClaro: #18ddf3;
-  --ion-color-ekarteAzulClaro-rgb: 24,221,243;
-  --ion-color-ekarteAzulClaro-contrast: #000000;
-  --ion-color-ekarteAzulClaro-contrast-rgb: 0,0,0;
-  --ion-color-ekarteAzulClaro-shade: #15c2d6;
-  --ion-color-ekarteAzulClaro-tint: #2fe0f4;
+--ion-color-ekarteAZulClaro: #18ddf3;
+  --ion-color-ekarteAZulClaro-rgb: 24,221,243;
+  --ion-color-ekarteAZulClaro-contrast: #000000;
+  --ion-color-ekarteAZulClaro-contrast-rgb: 0,0,0;
+  --ion-color-ekarteAZulClaro-shade: #15c2d6;
+  --ion-color-ekarteAZulClaro-tint: #2fe0f4;
   
   
 
@@ -97,19 +97,90 @@
   --ion-color-tint: var(--ion-color-ekarteMorado-tint);
 }
 
-.ion-color-ekarteAzulClaro {
-  --ion-color-base: var(--ion-color-ekarteAzulClaro);
-  --ion-color-base-rgb: var(--ion-color-ekarteAzulClaro-rgb);
-  --ion-color-contrast: var(--ion-color-ekarteAzulClaro-contrast);
-  --ion-color-contrast-rgb: var(--ion-color-ekarteAzulClaro-contrast-rgb);
-  --ion-color-shade: var(--ion-color-ekarteAzulClaro-shade);
-  --ion-color-tint: var(--ion-color-ekarteAzulClaro-tint);
-
-  
-
-
-
+.ion-color-ekarteAZulClaro {
+  --ion-color-base: var(--ion-color-ekarteAZulClaro);
+  --ion-color-base-rgb: var(--ion-color-ekarteAZulClaro-rgb);
+  --ion-color-contrast: var(--ion-color-ekarteAZulClaro-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-ekarteAZulClaro-contrast-rgb);
+  --ion-color-shade: var(--ion-color-ekarteAZulClaro-shade);
+  --ion-color-tint: var(--ion-color-ekarteAZulClaro-tint);
 
 }
+
+
+  --ion-color-LaSirena: #ffff00;
+  --ion-color-LaSirena-rgb: 255,255,0;
+  --ion-color-LaSirena-contrast: #000000;
+  --ion-color-LaSirena-contrast-rgb: 0,0,0;
+  --ion-color-LaSirena-shade: #e0e000;
+  --ion-color-LaSirena-tint: #ffff1a;
+
+
+.ion-color-LaSirena {
+  --ion-color-base: var(--ion-color-LaSirena);
+  --ion-color-base-rgb: var(--ion-color-LaSirena-rgb);
+  --ion-color-contrast: var(--ion-color-LaSirena-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-LaSirena-contrast-rgb);
+  --ion-color-shade: var(--ion-color-LaSirena-shade);
+  --ion-color-tint: var(--ion-color-LaSirena-tint);
+}
+
+
+  --ion-color-Jumbo: #ff0000;
+  --ion-color-Jumbo-rgb: 255,0,0;
+  --ion-color-Jumbo-contrast: #ffffff;
+  --ion-color-Jumbo-contrast-rgb: 255,255,255;
+  --ion-color-Jumbo-shade: #e00000;
+  --ion-color-Jumbo-tint: #ff1a1a;
+
+
+.ion-color-Jumbo {
+  --ion-color-base: var(--ion-color-Jumbo);
+  --ion-color-base-rgb: var(--ion-color-Jumbo-rgb);
+  --ion-color-contrast: var(--ion-color-Jumbo-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-Jumbo-contrast-rgb);
+  --ion-color-shade: var(--ion-color-Jumbo-shade);
+  --ion-color-tint: var(--ion-color-Jumbo-tint);
+}
+
+
+  --ion-color-Payless: #ff8000;
+  --ion-color-Payless-rgb: 255,128,0;
+  --ion-color-Payless-contrast: #000000;
+  --ion-color-Payless-contrast-rgb: 0,0,0;
+  --ion-color-Payless-shade: #e07100;
+  --ion-color-Payless-tint: #ff8d1a;
+
+
+.ion-color-Payless {
+  --ion-color-base: var(--ion-color-Payless);
+  --ion-color-base-rgb: var(--ion-color-Payless-rgb);
+  --ion-color-contrast: var(--ion-color-Payless-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-Payless-contrast-rgb);
+  --ion-color-shade: var(--ion-color-Payless-shade);
+  --ion-color-tint: var(--ion-color-Payless-tint);
+}
+
+
+  --ion-color-Zara: #000000;
+  --ion-color-Zara-rgb: 0,0,0;
+  --ion-color-Zara-contrast: #ffffff;
+  --ion-color-Zara-contrast-rgb: 255,255,255;
+  --ion-color-Zara-shade: #000000;
+  --ion-color-Zara-tint: #1a1a1a;
+
+
+.ion-color-Zara {
+  --ion-color-base: var(--ion-color-Zara);
+  --ion-color-base-rgb: var(--ion-color-Zara-rgb);
+  --ion-color-contrast: var(--ion-color-Zara-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-Zara-contrast-rgb);
+  --ion-color-shade: var(--ion-color-Zara-shade);
+  --ion-color-tint: var(--ion-color-Zara-tint);
+}
+
+
+
+
 
 }

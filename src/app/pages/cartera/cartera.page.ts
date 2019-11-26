@@ -7,6 +7,7 @@ import { File } from '@ionic-native/file/ngx';
 import { PhotoViewer,PhotoViewerOptions } from '@ionic-native/photo-viewer/ngx';
 import {NavController, ModalController} from '@ionic/angular';
 import {ModalImagentarjetaPage} from '../modal-imagentarjeta/modal-imagentarjeta.page';
+import { get } from 'http';
 
 @Component({
   selector: 'app-cartera',
@@ -14,8 +15,7 @@ import {ModalImagentarjetaPage} from '../modal-imagentarjeta/modal-imagentarjeta
   styleUrls: ['./cartera.page.scss'],
 })
 export class CarteraPage implements OnInit {
-  public LaSirena: any = 'assets\imagenes\La Sirena.png';
-  public logo: string;
+  
   public tarjetas : any = [];
   public tarjetasfbcliente : any = [];
 
@@ -50,13 +50,6 @@ export class CarteraPage implements OnInit {
         console.log(error);
       };
       console.log (this.tarjetas);
-  }
-
-  obtenerLogo() {
-    if (this.tarjetasfbcliente.tarjeta.EmpresaAsociada === 'La Sirena') {
-      this.logo = this.LaSirena;
-    }
-    return "assets\imagenes\Jumbo.png";
   }
 
   botoneliminar(tarjeta : string)
@@ -111,4 +104,6 @@ export class CarteraPage implements OnInit {
   //  console.log("nav"); 
    // this.nav.navigateForward(['/modal-cig',codigotarjeta]);
   }
+
+
 }

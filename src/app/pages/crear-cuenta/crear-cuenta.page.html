@@ -1,5 +1,4 @@
 <ion-header no-border>
-  <!-- EKARTE VERSION FINALLLL -->
 
   <ion-toolbar mode="ios" class="background">
 
@@ -8,7 +7,7 @@
     </ion-title>
 
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/inicio"></ion-back-button>
+      <ion-back-button color="light" defaultHref="/inicio"></ion-back-button>
     </ion-buttons>
     <ion-title color="light">Crear Cuenta</ion-title>
   </ion-toolbar>
@@ -24,12 +23,12 @@
 
     <ion-item>
       <ion-label color="primary">Nombre</ion-label>
-      <ion-input placeholder="Ingrese su nombre" [(ngModel)]="nombre"></ion-input>
+      <ion-input class="ion-text-end" placeholder="Ingrese su nombre" [(ngModel)]="nombre"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label color="primary">Apellido</ion-label>
-      <ion-input placeholder="Ingrese su apellido" [(ngModel)]="apellido"></ion-input>
+      <ion-input class="ion-text-end" placeholder="Ingrese su apellido" [(ngModel)]="apellido"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -42,18 +41,18 @@
 
     <ion-item>
       <ion-label color="primary">Correo electronico</ion-label>
-      <ion-input placeholder="ejemplo@ejemplo.com" type="email" [(ngModel)]="email"></ion-input>
+      <ion-input class="ion-text-end" placeholder="Ejemplo@ejemplo.com" type="email" [(ngModel)]="email"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label color="primary">Contraseña</ion-label>
-      <ion-input placeholder="Contraseña" type="password" [(ngModel)]="password">
+      <ion-input class="ion-text-end" placeholder="Contraseña" type="password" [(ngModel)]="password">
       </ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label color="primary">Confirmar Contraseña</ion-label>
-      <ion-input placeholder="Repita su contraseña"></ion-input>
+      <ion-input class="ion-text-end" placeholder="Repita su contraseña"></ion-input>
     </ion-item>
 
     <ion-item>

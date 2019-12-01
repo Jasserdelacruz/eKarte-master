@@ -1,6 +1,5 @@
 <ion-header></ion-header>
 
-
 <ion-content padding class="background" scroll="false">
 
   <div style="height: 80px;"></div>
@@ -21,7 +20,6 @@
   <ion-card color="light">
     <ion-input placeholder="Contraseña" type="password" name="password" [(ngModel)]="password">
       <ion-icon name="lock" slot="start" class="ion-icon"></ion-icon>
-      <!-- <ion-icon src="/path/to/external/file.svg"></ion-icon>   OJO -->
     </ion-input>
 
   </ion-card>
@@ -31,54 +29,18 @@
     <ion-toggle color="light"></ion-toggle>
   </ion-item>
 
-
-
-
-
-
-
   <ion-grid>
     <ion-row class="ion-align-items-center">
-        <ion-button (click)="onSubmitLogin()" class="login-button" color="ekarteMorado">Iniciar Sección</ion-button>
+      <ion-button (click)="onSubmitLogin()" class="login-button" color="ekarteMorado">Inicia Sesión</ion-button>
 
 
+      <ion-text class="ion-paddingpersonal" color="Dark" routerLink="/recuperar-contrasena"> <br> ¿Olvidó su contraseña?
+      </ion-text>
 
-       
-        <ion-text class="ion-paddingpersonal" color="Dark" routerLink="/recuperar-contrasena">¿Olvidó su contraseña?
-        </ion-text>
-
-        <ion-row class="ion-paddingpersonal-02">
-            <div>
-                ¿No tienes cuenta?<a routerLink='/crear-cuenta'>
-                    Crea una</a>
-            </div>
-        </ion-row>
-
-
-
-     
-      <!-- <ion-col>
-        <ion-button class="login-button" routerLink="/registro" color="ekarteMorado">Registro</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-
-
-
-  <ion-toolbar slot="" color="transparent">
-
-    <div>
-      <div class="row" style="height: 10px;">
-
-        <h6 align="center" routerLink="/recuperar-contrasena">¿Olvidó su contraseña?</h6>
-      </div>
-    </div>
-
-
-
-  </ion-toolbar>
-</ion-content>
-
-
- -->
+      <ion-row class="ion-paddingpersonal-02">
+        <div>
+          <br>
+          ¿No tienes cuenta?<a routerLink='/crear-cuenta'>
+            Crea una</a>
+        </div>
+      </ion-row>

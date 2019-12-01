@@ -1,19 +1,19 @@
-<ion-header  no-border>
+<ion-header no-border>
 
-  <ion-toolbar>
-      <ion-buttons slot="start">
-          <ion-back-button  defaultHref="/inicio"></ion-back-button>
-    
-        </ion-buttons>
-    <ion-title>Recuperar Contraseña</ion-title>
+  <ion-toolbar mode="ios" class="background">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" defaultHref="/inicio"></ion-back-button>
+
+    </ion-buttons>
+    <ion-title color="light">Recuperar Contraseña</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content id="ion-content-recuperar-contrasena">
   <ion-item>
-    <ion-label color="primary">Correo electronico</ion-label>
-    <ion-input placeholder="ejemplo@ejemplo.com" type="email" [(ngModel)] = "email"></ion-input>
-  </ion-item>
+    <ion-label color="primary" align-items-start>Correo electronico</ion-label>
+    <ion-input placeholder="Ejemplo@ejemplo.com" class="ion-text-end" type="email" [(ngModel)]="email"></ion-input>
+  </ion-item> 
+  <br>
   <ion-button color="secondary" expand="block" (click)="onResetEmail()">Enviar y continuar</ion-button>
-  <p class="error pink-text center-aling"></p>
 </ion-content>

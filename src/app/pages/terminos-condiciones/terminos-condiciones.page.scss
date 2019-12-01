@@ -1,10 +1,15 @@
-.or-label {
-    width: 20%;
-    font-size: 16px;
-    margin: 0 auto;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    height: 50px;
-    text-align: center;
-    color: red;
-  }
+.color{
+    color: black;
+    text-align: justify;
+ 
+ }
+
+.colors{
+  background-color: rgb(245, 245, 248);
+}
+
+
+//background color personal 
+ .background-color{
+  --ion-background-color:#d7d8da; 
+ }

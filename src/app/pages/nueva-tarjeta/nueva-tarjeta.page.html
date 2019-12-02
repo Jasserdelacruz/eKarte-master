@@ -14,12 +14,12 @@
   
   <ion-button color="ekarteMorado" expand="block" size="large" (click)="EscanearCodigoBarras()">
       <ion-icon name="add-circle-outline"></ion-icon>
-    Capturar código de barras
+      Código de barras
   </ion-button>
 
   <ion-button color="ekarteMorado" expand="block" size="large" (click)="EscanearCodigoQR()">
       <ion-icon name="add-circle-outline"></ion-icon>
-    Capturar código QR
+    Código QR
   </ion-button>
 
   <ion-card *ngIf="codigotarjeta">Código Escaneado:{{codigotarjeta}}</ion-card>
@@ -51,26 +51,20 @@
 </ion-list>
 
 <ion-item>
-  <ion-label position="floating">Codigo Afiliado Empresa</ion-label>
+  <ion-label position="floating" align="center">Codigo Afiliado Empresa</ion-label>
   <ion-input [(ngModel)] = "codigoempresa"  type="text"></ion-input>
+
 </ion-item>
 
-<ion-grid>
-      <ion-row class="ion-align-items-center">
-        <ion-col>
-          <ion-button (click)="addItem()" color="ekarteMorado">Guardar</ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button (click)="AgregarTarjetaDesdeEmpresa()" color="ekarteMorado">Consultar Datos En Empresa</ion-button>
-        </ion-col>
 
-        <ion-col>
-          <ion-button href="/cartera" color="ekarteMorado">Cancelar</ion-button>
-        </ion-col>
-      </ion-row>
-</ion-grid>
+  <ion-button (click)="AgregarTarjetaDesdeEmpresa()" expand="block" color="primary" align="center">Consultar Datos En Empresa</ion-button>
+  
 
 
+
+<ion-button (click)="addItem()" color="ekarteMorado" expand="block" class="margen">Guardar</ion-button>
+
+<ion-button href="/cartera" color="ekarteMorado" expand="block" class="margen">Cancelar</ion-button>
   
 </ion-content>
 

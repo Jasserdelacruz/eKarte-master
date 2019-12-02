@@ -33,12 +33,7 @@ export class CrearCuentaPage implements OnInit {
     }
     ).catch(err =>console.log(err))
   }
-  async openModal() {
-    var modal = await this.modalController.create({
-      component: TerminosCondicionesPage
-    });
-    return await modal.present();
-  }
+ 
 
   ngOnInit() {
   }

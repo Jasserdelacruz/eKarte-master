@@ -37,7 +37,6 @@
     "@ionic/storage": "^2.2.0",
     "angular-material-expansion-panel": "^0.7.2",
     "cordova-android": "8.1.0",
-    "cordova-plugin-qrscanner": "^3.0.1",
     "core-js": "^2.5.4",
     "firebase": "^7.0.0",
     "ngx-barcode": "^0.2.4",
@@ -93,8 +92,7 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "com-sarriaroman-photoviewer": {},
-      "cordova-plugin-qrscanner": {}
+      "com-sarriaroman-photoviewer": {}
     },
     "platforms": [
       "android"

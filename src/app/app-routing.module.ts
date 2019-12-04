@@ -13,7 +13,9 @@ const routes: Routes = [
   { path: 'ajustes', loadChildren: './pages/ajustes/ajustes.module#AjustesPageModule' },
   { path: 'acerca-de', loadChildren: './pages/acerca-de/acerca-de.module#AcercaDePageModule' },
   { path: 'ayuda', loadChildren: './pages/ayuda/ayuda.module#AyudaPageModule' },
-  { path: 'nueva-tarjeta', loadChildren: './pages/nueva-tarjeta/nueva-tarjeta.module#NuevaTarjetaPageModule' }
+  { path: 'nueva-tarjeta', loadChildren: './pages/nueva-tarjeta/nueva-tarjeta.module#NuevaTarjetaPageModule' },
+  { path: 'terminos-condiciones', loadChildren: './pages/terminos-condiciones/terminos-condiciones.module#TerminosCondicionesPageModule' }
+
 
 ];
 
@@ -21,8 +23,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
-    
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule]
 })

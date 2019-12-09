@@ -23,14 +23,16 @@ import { DatePicker } from '@ionic-native/date-picker/ngx';
 import {DatePipe} from '@angular/common';
 import { File } from '@ionic-native/file/ngx';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
-
+import { browser } from 'protractor';
+import { WheelSelector, WheelSelectorOriginal } from '@ionic-native/wheel-selector';
+ 
 
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [HttpClientModule,BrowserModule, IonicModule.forRoot(),
-  NoopAnimationsModule, AppRoutingModule,
+  NoopAnimationsModule, HttpClientModule,  AppRoutingModule,
   AngularFireModule.initializeApp(firebaseConfig),
   AngularFireAuthModule, AngularFireStorageModule,
   IonicStorageModule.forRoot()
@@ -43,8 +45,10 @@ import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
     File,
     PhotoViewer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    WheelSelectorOriginal,
     DatePicker,
-    DatePipe
+    DatePipe,
+    
   ],
   bootstrap: [AppComponent]
 })

@@ -45,7 +45,6 @@ import { WheelSelector, WheelSelectorOriginal } from '@ionic-native/wheel-select
     File,
     PhotoViewer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    WheelSelectorOriginal,
     DatePicker,
     DatePipe,
     

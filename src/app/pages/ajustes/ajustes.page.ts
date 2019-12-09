@@ -8,7 +8,7 @@ import { StorageService, Item } from '../../servicios/storage.service';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
 import { DatePipe } from '@angular/common';
 import { EmpresaService } from '../../servicios/empresa.service';
-import * as admin from 'firebase-admin';
+
 
 @Component({
   selector: 'app-ajustes',

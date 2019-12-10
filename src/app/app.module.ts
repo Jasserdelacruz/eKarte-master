@@ -27,8 +27,8 @@ import { File } from '@ionic-native/file/ngx';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import {NgxBarcodeModule} from 'ngx-barcode';
-import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { ComponentsModule } from './components/menu/components.module';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 
 @NgModule({
@@ -38,12 +38,14 @@ import { ComponentsModule } from './components/menu/components.module';
     BrowserModule,
     NgxQRCodeModule,
     NgxBarcodeModule,
-    HttpClientModule, IonicModule.forRoot(),
+    HttpClientModule,  IonicModule.forRoot(),
   NoopAnimationsModule, AppRoutingModule,
   AngularFireModule.initializeApp(firebaseConfig),
   AngularFireAuthModule, AngularFireStorageModule,
   IonicStorageModule.forRoot(),
-  ComponentsModule
+  ComponentsModule,
+
+
   ],
   providers: [
     StatusBar,
@@ -57,7 +59,8 @@ import { ComponentsModule } from './components/menu/components.module';
     DatePipe,
     BarcodeScanner,
     QRScanner,
-    GooglePlus
+    GooglePlus,
+
   ],
   bootstrap: [AppComponent]
 })

@@ -10,6 +10,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 
 
+
 const routes: Routes = [
   {
     path: '',

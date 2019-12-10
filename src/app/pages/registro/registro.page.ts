@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroPage implements OnInit {
 
-  constructor() { }
-
   ngOnInit() {
   }
+
+
 
 }

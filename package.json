@@ -29,6 +29,7 @@
     "@ionic-native/core": "^5.16.0",
     "@ionic-native/date-picker": "^5.16.0",
     "@ionic-native/file": "^5.16.0",
+    "@ionic-native/google-plus": "^5.18.0",
     "@ionic-native/photo-viewer": "^5.16.0",
     "@ionic-native/qr-scanner": "^5.16.0",
     "@ionic-native/splash-screen": "^5.0.0",
@@ -37,6 +38,7 @@
     "@ionic/storage": "^2.2.0",
     "angular-material-expansion-panel": "^0.7.2",
     "cordova-android": "8.1.0",
+    "cordova-plugin-googleplus": "^8.2.1",
     "core-js": "^2.5.4",
     "firebase": "^7.0.0",
     "ngx-barcode": "^0.2.4",
@@ -92,7 +94,10 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "com-sarriaroman-photoviewer": {}
+      "com-sarriaroman-photoviewer": {},
+      "cordova-plugin-googleplus": {
+        "PLAY_SERVICES_VERSION": "15.0.1"
+      }
     },
     "platforms": [
       "android"

@@ -34,7 +34,9 @@
     
       <ion-button (click)="onSubmitLogin()" class="login-button" color="ekarteMorado" expand="full">Iniciar Sesión</ion-button>
 
-
+       <ion-button class="margenBoton" shape="round" (click)="GoogleLogin()" expand="block" color="light" routerLink="/mistarjetas">Registrar con Google
+          <ion-icon slot="start" src="assets\imagenes\google-icon.svg"></ion-icon>
+       </ion-button>
 
       <section align="center"> 
         <ion-text class="ion-paddingpersonal" color="Dark">¿Olvidó su contraseña? <a routerLink="/recuperar-contrasena">Pulse aquí</a></ion-text>

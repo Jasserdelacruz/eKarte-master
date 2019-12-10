@@ -6,7 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { CrearCuentaPage } from './crear-cuenta.page';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+
+
 
 
 
@@ -24,7 +25,7 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-
+  
   ],
   declarations: [CrearCuentaPage],
   entryComponents:[]

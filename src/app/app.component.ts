@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { MenuComponent } from './components/menu/menu.component';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { CrearCuentaPage } from './pages/crear-cuenta/crear-cuenta.page';
+import { InicioPage } from './pages/inicio/inicio.page';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ import { CrearCuentaPage } from './pages/crear-cuenta/crear-cuenta.page';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  rootPage: any = CrearCuentaPage;
+  rootPage: any = InicioPage;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,

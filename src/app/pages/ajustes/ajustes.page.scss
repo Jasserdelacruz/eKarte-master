@@ -1,0 +1,33 @@
+//Background perfeccinado, toma pantalla completa
+
+
+.background1{
+   --background: url(/assets/imagenes/Plantilla2.png) 0 0/100% 100% no-repeat ;
+}
+
+
+.posicion{
+   height: 500px;
+   width: 500px;
+   vertical-align: middle;
+}
+
+
+// Tamaño de letras, tipo y justificacion texto 
+.sizeletras{
+   font-size: 11pt;
+   font-family:'Times New Roman', Times, serif;
+   text-align: justify;
+   color: black;
+}
+
+img{
+   display:block;
+   margin:auto;
+
+}
+
+.centrado{
+   text-align: center;
+ }
+ 

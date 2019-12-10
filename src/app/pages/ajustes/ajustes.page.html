@@ -1,9 +1,59 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>ajustes</ion-title>
+<ion-header no-border>
+
+  <ion-toolbar padding class="background1" mode="ios" >
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/mistarjetas"></ion-back-button>
+
+    </ion-buttons>
+
+    <ion-title text-center color="light">Ajustes</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<hr>
+<hr>
 
-</ion-content>
+<ion-content>
+  
+  <ion-row center>
+
+    <ion-col width-50 center>
+      <ion-label>
+        <ion-item color="transparent">
+          <ion-label color="transparent">Notificar fecha de vencimiento </ion-label>
+          <ion-toggle color="primary"></ion-toggle>
+        </ion-item>
+
+        <hr>
+        <hr>
+        
+
+        <ion-item color="transparent">
+          <ion-label color="transparent" position="floating">
+            Plazo de notificacion de fecha de vencimiento</ion-label>
+          <ion-select placeholder="Seleccione uno" [(ngModel)]="fechaexpiracion">
+            <ion-select-option value="2 dias">2 dias</ion-select-option>
+            <ion-select-option value="4 dias">4 dias</ion-select-option>
+            <ion-select-option value="7 dias">7 dias</ion-select-option>
+            <ion-select-option value="10 dias">10 dias</ion-select-option>
+            <ion-select-option value="15 dias">15 dias</ion-select-option>
+            <ion-select-option value="20 dias">20 dias</ion-select-option>
+          </ion-select>
+        </ion-item>
+        
+        <hr>
+        <hr>
+        
+        <ion-item color="transaparent">
+          <ion-label position="stacked">Fecha de Vencimiento de Puntos</ion-label>
+          <ion-input [(ngModel)]="fechaexpiracion" (click)="SelectDate()" type="text"></ion-input>
+        </ion-item>
+        <hr>
+        <hr>
+
+        
+        <div class="centrado">
+          <ion-button shape="round" size="Large" color="danger" (click)="presentAlertMultipleButtons()">Eliminar Cuenta</ion-button>
+        </div>

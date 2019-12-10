@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { AuthService} from '../../servicios/auth.service';
 import { Router } from '@angular/router';
 import { ModalController,  } from '@ionic/angular';
-import {TerminosCondicionesPage} from '../terminos-condiciones/terminos-condiciones.page';
+import * as firebase from 'firebase/app';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { AngularFireAuth } from '@angular/fire/auth';
+
+
 
 @Component({
   selector: 'app-crear-cuenta',
   templateUrl: './crear-cuenta.page.html',
   styleUrls: ['./crear-cuenta.page.scss'],
 })
+
 export class CrearCuentaPage implements OnInit {
 
   foto: any;
@@ -21,7 +25,8 @@ export class CrearCuentaPage implements OnInit {
   public password : string;
   
 
-  constructor( private auth : AuthService, private router : Router, private modalController: ModalController ) { }
+  constructor( private auth : AuthService, private router : Router, private modalController: ModalController, 
+               private afAuth: AngularFireAuth, private gplus: GooglePlus, public afauth: AngularFireAuth ) { }
 
 
   onSubmitRegister()
@@ -32,6 +37,14 @@ export class CrearCuentaPage implements OnInit {
       console.log(auth)
     }
     ).catch(err =>console.log(err))
+  }
+
+  GoogleLogin() {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
+
+  logout() {
+    this.afAuth.auth.signOut();
   }
  
 

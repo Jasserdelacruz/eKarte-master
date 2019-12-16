@@ -23,6 +23,7 @@ export class CrearCuentaPage implements OnInit {
   public genero : string;
   public email : string;
   public password : string;
+  public passwordvalidate : string;
   
 
   constructor( private auth : AuthService, private router : Router, private modalController: ModalController, 

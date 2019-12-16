@@ -24,14 +24,13 @@
 
   </ion-card>
 
-  <ion-item color="transparent">
-    <ion-label>Mantener sesión iniciada</ion-label>
-    <ion-toggle color="light"></ion-toggle>
-  </ion-item>
-
 
     
-      <ion-button (click)="onSubmitLogin()"  shape="round" color="ekarteMorado" expand="full">Iniciar Sesión</ion-button>
+      <ion-button class="margenBoton" (click)="onSubmitLogin()"  shape="round" color="ekarteMorado" expand="full">Iniciar Sesión</ion-button>
+
+      <ion-button class="margenBoton" shape="round" (click)="GoogleLogin()" expand="block" color="light" routerLink="/mistarjetas">Iniciar sesión con Google
+          <ion-icon slot="start" src="assets\imagenes\google-icon.svg"></ion-icon>
+      </ion-button>
 
 
 

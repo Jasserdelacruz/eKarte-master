@@ -1,67 +1,70 @@
-<ion-header no-border  >
-    
+<ion-header no-border>
   <ion-toolbar padding class="background">
 
-   
+    <ion-back-button slot="start" color="light" defaultHref="/cartera"></ion-back-button>
 
-
-  <ion-title text-center color="light" >Nueva Tarjeta</ion-title> 
-  
-</ion-toolbar>
+    <ion-title text-center color="light">Nueva Tarjeta</ion-title>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  
-  <ion-button color="ekarteMorado" expand="block" size="large" (click)="EscanearCodigoBarras()">
-      <ion-icon name="add-circle-outline"></ion-icon>
-      Código de barras
-  </ion-button>
+
+
+
+<ion-content fullscreen>
+
+  <hr>
+  <div class="center">
+
+    <button class="rock" (click)="EscanearCodigoBarras()"> </button>
+    <br>
+    <br>
+    <label text-center><b>Escanear</b></label>
+  </div>
+  <hr>
 
   <ion-card *ngIf="codigotarjeta">Código Escaneado:{{codigotarjeta}}</ion-card>
+  <ion-list>
+    <ion-item>
+      <ion-label> Descripción </ion-label>
+      <ion-input [(ngModel)]="nombre"></ion-input>
+    </ion-item>
 
-   <ion-list>
+    <ion-item>
+      <ion-label>Empresa asociada</ion-label>
+      <ion-select [(ngModel)]="empresaasociada" value="" okText="Aceptar" cancelText="Cancelar">
+        <ion-select-option value="LaSirena">La sirena</ion-select-option>
+        <ion-select-option value="Payless">Payless</ion-select-option>
+        <ion-select-option value="Jumbo">Jumbo</ion-select-option>
+        <ion-select-option value="Zara">Zara</ion-select-option>
+      </ion-select>
+    </ion-item>
 
-  <ion-item> 
-  <ion-label> Información </ion-label>
-  <ion-input [(ngModel)] = "nombre"></ion-input>
-  </ion-item>  
-
-  <ion-item>
-  <ion-label>Empresa Asociada</ion-label>
-    <ion-select [(ngModel)]= "empresaasociada" value="" okText="Aceptar" cancelText="Cancelar">
-      <ion-select-option value="LaSirena">La sirena</ion-select-option>
-      <ion-select-option value="Payless">Payless</ion-select-option>
-      <ion-select-option value="Jumbo">Jumbo</ion-select-option>
-      <ion-select-option value="Zara">Zara</ion-select-option>
-    </ion-select>
-  </ion-item>
-
-
-
-  <ion-item>
+    <ion-item>
       <ion-label position="floating">Fecha Expiracion</ion-label>
-      <ion-input [(ngModel)] = "fechaexpiracion" (click)="SelectDate()" type="text"></ion-input>
+      <ion-input [(ngModel)]="fechaexpiracion" (click)="SelectDate()" type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-label position="floating" align="start">Codigo Afiliado Empresa</ion-label>
+    <ion-input [(ngModel)]="codigoempresa" type="text"></ion-input>
   </ion-item>
 
-</ion-list>
+  <hr>
 
-<ion-item>
-  <ion-label position="floating" align="center">Codigo Afiliado Empresa</ion-label>
-  <ion-input [(ngModel)] = "codigoempresa"  type="text"></ion-input>
+  <div class="center">
+    <ion-button (click)="AgregarTarjetaDesdeEmpresa()" shape="round" color="primary" size="default" type="button">
+      Consultar Datos En Empresa</ion-button>
+  </div>
+  <hr>
 
-</ion-item>
+  <div class="center">
+    <ion-button (click)="addItem()" class="section" color="ekarteMorado" shape="round" type="button">Guardar
+    </ion-button>
 
 
-  <ion-button (click)="AgregarTarjetaDesdeEmpresa()" expand="block" color="primary" align="center">Consultar Datos En Empresa</ion-button>
-  
+    <ion-button href="/cartera" color="ekarteMorado" shape="round" type="button">Cancelar</ion-button>
+  </div>
 
 
-
-<ion-button (click)="addItem()" color="ekarteMorado" expand="block" class="margen">Guardar</ion-button>
-
-<ion-button href="/cartera" color="ekarteMorado" expand="block" class="margen">Cancelar</ion-button>
-  
 </ion-content>
-
-
-

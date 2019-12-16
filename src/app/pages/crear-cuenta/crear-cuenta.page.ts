@@ -33,10 +33,11 @@ export class CrearCuentaPage implements OnInit {
   {
     this.auth.register(this.nombre, this.apellido, this.genero,this.email, this.password).then(auth =>
     {
+      alert ('El usuario se ha registrado exitosamente.')
       this.router.navigate(['/inicio'])
       console.log(auth)
     }
-    ).catch(err =>console.log(err))
+    ).catch(err =>alert(err))
   }
 
   GoogleLogin() {

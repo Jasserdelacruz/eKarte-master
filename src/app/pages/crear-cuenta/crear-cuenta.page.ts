@@ -23,6 +23,7 @@ export class CrearCuentaPage implements OnInit {
   public genero : string;
   public email : string;
   public password : string;
+  public passwordvalidate : string;
   
 
   constructor( private auth : AuthService, private router : Router, private modalController: ModalController, 
@@ -33,10 +34,11 @@ export class CrearCuentaPage implements OnInit {
   {
     this.auth.register(this.nombre, this.apellido, this.genero,this.email, this.password).then(auth =>
     {
+      alert ('El usuario se ha registrado exitosamente.')
       this.router.navigate(['/inicio'])
       console.log(auth)
     }
-    ).catch(err =>console.log(err))
+    ).catch(err =>alert(err))
   }
 
   GoogleLogin() {

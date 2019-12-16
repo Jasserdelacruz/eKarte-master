@@ -8,8 +8,6 @@ import { DatePicker } from '@ionic-native/date-picker/ngx';
 import { DatePipe } from '@angular/common';
 import { EmpresaService } from '../../servicios/empresa.service';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
-import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
-
 
 @Component({
   selector: 'app-nueva-tarjeta',
@@ -33,14 +31,12 @@ public codigoempresa : string;
 
 constructor(private empresaService: EmpresaService, private camera: Camera, private db : AppfirebaseService, private router: Router,
             private activatedRoute: ActivatedRoute, private storageService: StorageService, private ptl: Platform,
-            public datePicker: DatePicker, public datePipe: DatePipe, public platform: Platform, private escanerBarra: BarcodeScanner,
-            private escanerQR: QRScanner ) {
+            public datePicker: DatePicker, public datePipe: DatePipe, public platform: Platform, private escanerBarra: BarcodeScanner
+            ) {
   this.ptl.ready().then(() => {
     this.fechaexpiracion = this.datePipe.transform(new Date(), "dd-MM-yyyy");
   });
  }
-
-
 
 addItem(){
   this.db.agregartarjeta(this.nombre, this.empresaasociada, this.fechaexpiracion,this.puntos, this.pathimagen,this.codigotarjeta).then(response =>
@@ -108,32 +104,6 @@ AgregarTarjetaDesdeEmpresa()
 
   }
 
-  EscanearCodigoQR() {
-    // Optionally request the permission early
-    this.escanerQR.prepare().then((status: QRScannerStatus) => {
-    if (status.authorized) {
-     // camera permission was granted
-
-
-     // start scanning
-     let scanSub = this.escanerQR.scan().subscribe((text: string) => {
-       console.log('Scanned something', text);
-
-       this.escanerQR.hide(); // hide camera preview
-       scanSub.unsubscribe(); // stop scanning
-     });
-
-    } else if (status.denied) {
-     // camera permission was permanently denied
-     // you must use QRScanner.openSettings() method to guide the user to the settings page
-     // then they can grant the permission from there
-    } else {
-     // permission was denied, but not permanently. You can ask for permission again at a later time.
-   }
-   }).catch((e: any) => console.log('Error is', e));
-
-  }
-
   SelectDate() {
     var options = {
       date: new Date(),
@@ -146,7 +116,6 @@ AgregarTarjetaDesdeEmpresa()
     });
 
   }
-
 
   ngOnInit() {
 

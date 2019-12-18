@@ -44,7 +44,12 @@
     <ion-input class="ion-text-end" placeholder="Contraseña" type="password" [(ngModel)] = "password">
     </ion-input>
   </ion-item>
-
+  
+  <ion-item>
+    <ion-label>Confirmar contraseña</ion-label>
+    <ion-input class="ion-text-end" placeholder="Confirmar contraseña" type="password" [(ngModel)] = "password">
+    </ion-input>
+  </ion-item>
   <ion-item>
         <a routerLink="/terminos-condiciones" >Aceptar términos y condiciones</a>
 
@@ -52,9 +57,8 @@
   </ion-item>
 
 </ion-list>
-  <ion-button color="secondary" expand="block" (click)="onSubmitRegister()">Enviar y continuar</ion-button>
 
+  <div class="center"><ion-button color="secondary"  shape="round" (click)="onSubmitRegister()">Enviar y continuar</ion-button></div>
 
-
-   
+  
 </ion-content>

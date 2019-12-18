@@ -3,8 +3,8 @@
     
     <ion-toolbar padding class="background">
 
-      <ion-buttons slot="start">
-          <ion-back-button  defaultHref="/inicio"></ion-back-button>
+      <ion-buttons slot="start" >
+          <ion-back-button color="light" defaultHref="/inicio"></ion-back-button>
     
         </ion-buttons>
 
@@ -23,6 +23,11 @@
     <ion-label>Correo electronico</ion-label>
     <ion-input placeholder="ejemplo@ejemplo.com" type="email" [(ngModel)] = "email"></ion-input>
   </ion-item>
-  <ion-button color="secondary" expand="block" (click)="onResetEmail()">Enviar y continuar</ion-button>
+
+
+  <div class="center">
+    <ion-button color="secondary"  shape="round" (click)="onResetEmail()">Enviar y continuar</ion-button>
+   </div>
+  
   <p class="error pink-text center-aling"></p>
 </ion-content>

@@ -9,11 +9,8 @@ import { RecuperarContrasenaPage } from '../pages/recuperar-contrasena/recuperar
 export class AuthService {
   private hasverifiedemail = true;
   private resultresetpassword;
-  constructor
-  (
-    private AFauth: AngularFireAuth, 
-    private db: AngularFirestore,
-    ) { }
+  
+  constructor(private AFauth: AngularFireAuth, private db: AngularFirestore) { }
 
   emailverification()
   {

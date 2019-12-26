@@ -14,9 +14,9 @@
 
 <ion-content>
   <ion-list ion-item *ngFor="let tarjeta of tarjetasfbcliente">
-  <ion-card>
+  <ion-card color="{{tarjeta.EmpresaAsociada}}">
   <ion-item-sliding>
-    <ion-item button="true" color="{{tarjeta.EmpresaAsociada}}"(click)="openModal(tarjeta.CodigoTarjeta)">
+    <ion-item button="true" color="{{tarjeta.EmpresaAsociada}}" (click)="openModal(tarjeta.CodigoTarjeta)">
     <ion-avatar slot="start">
             <img src="assets\imagenes\{{tarjeta.EmpresaAsociada}}.png">
         </ion-avatar>
@@ -61,7 +61,14 @@
        <ion-item-option color="danger" (click)="botoneliminar(tarjeta.UID)">Eliminar</ion-item-option>
       </ion-item-options>
 
+      
+
   </ion-item-sliding>
+    
+   
+    <ion-toggle class="toggle" mode="ios"></ion-toggle>
+  
+    
   </ion-card>
 </ion-list>
 

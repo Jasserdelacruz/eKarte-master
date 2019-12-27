@@ -7,6 +7,7 @@ import { File } from '@ionic-native/file/ngx';
 import { PhotoViewer,PhotoViewerOptions } from '@ionic-native/photo-viewer/ngx';
 import {NavController, ModalController} from '@ionic/angular';
 import {ModalImagentarjetaPage} from '../modal-imagentarjeta/modal-imagentarjeta.page';
+import { ArrayType } from '@angular/compiler';
 
 @Component({
   selector: 'app-cartera',
@@ -17,6 +18,10 @@ export class CarteraPage implements OnInit {
   
   public tarjetas : any = [];
   public tarjetasfbcliente : any = [];
+  public TarjetasFavoritas : any = [];
+  public favorita: boolean;
+
+
 
   constructor(private nav: NavController, private modalCtrl: ModalController, private photoViewer: PhotoViewer,
     private file: File, private router: Router,private empresaService: EmpresaService, private db : AppfirebaseService, public alertController: AlertController) {
@@ -102,6 +107,20 @@ export class CarteraPage implements OnInit {
     await modal.present();
   //  console.log("nav"); 
    // this.nav.navigateForward(['/modal-cig',codigotarjeta]);
+  }
+
+  checkboxFavorita(tarjeta) {
+    
+    if (this.favorita === true) {
+      this.TarjetasFavoritas.add(tarjeta);
+
+    } else {
+      this.TarjetasFavoritas.remove(tarjeta);
+
+    }
+
+    console.log(this.TarjetasFavoritas);
+    
   }
 
 

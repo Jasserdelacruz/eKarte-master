@@ -19,6 +19,7 @@ interface tarjeta
 })
 export class AppfirebaseService {
   public tarjetas : Array<Object> = [];
+  public TarjetasFavoritas : Array<Object> = [];
   private User : any;
   constructor( private db: AngularFirestore, private AFauth: AngularFireAuth) 
   { 

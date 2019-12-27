@@ -29,13 +29,23 @@ export class CrearCuentaPage implements OnInit {
 
   onSubmitRegister()
   {
-    this.auth.register(this.nombre, this.apellido, this.genero,this.email, this.password).then(auth =>
+    if(this.password == this.passwordvalidate)
     {
-      alert ('El usuario se ha registrado exitosamente.')
-      this.router.navigate(['/inicio'])
-      console.log(auth)
+      this.auth.register(this.nombre, this.apellido, this.genero,this.email, this.password).then(auth =>
+      {
+        alert ('El usuario se ha registrado exitosamente.')
+        this.router.navigate(['/inicio'])
+        console.log(auth)
+      }
+      ).catch(err =>alert(err))
     }
-    ).catch(err =>alert(err))
+    else
+    {
+      alert("La contraseña ingresa no es igual a la contraseña de confirmación.");
+      this.password="";
+      this.passwordvalidate="";
+    }
+
   }
 
   GoogleLogin() {

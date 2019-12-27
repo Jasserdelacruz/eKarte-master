@@ -18,8 +18,8 @@ export class NuevaTarjetaPage implements OnInit {
 
 items: Item[] = [];
 newItem: Item = <Item>{};
-nombre:string;
-empresaasociada:string;
+nombre:string ="";
+empresaasociada:string ="";
 fechaexpiracion:string = "";
 puntos:string = "No Consultados en Empresa";
 pathimagen:string = "Imagen no agregada desde Empresas";
@@ -39,16 +39,31 @@ constructor(private empresaService: EmpresaService, private camera: Camera, priv
  }
 
 addItem(){
-  this.db.agregartarjeta(this.nombre, this.empresaasociada, this.fechaexpiracion,this.puntos, this.pathimagen,this.codigotarjeta).then(response =>
+  if (this.nombre.length==0)
   {
-    this.router.navigate(['/cartera']);
+    alert("El campo descripción no ha sido completado, favor verificar.");
   }
-  ).catch(error =>
+  else if (this.empresaasociada.length==0)
   {
-   // console.log(error);
-  }  
-    );
-}
+    alert("El campo empresa asociada  no ha sido completado, favor verificar");
+  }
+  else if (this.fechaexpiracion.length==0)
+  {
+    alert("La fecha de expiración no ha sido ingresada, favor verificar");
+  }
+  else
+  {
+    this.db.agregartarjeta(this.nombre, this.empresaasociada, this.fechaexpiracion,this.puntos, this.pathimagen,this.codigotarjeta).then(response =>
+      {
+        this.router.navigate(['/cartera']);
+      }
+      ).catch(error =>
+      {
+      // console.log(error);
+      }  
+        );
+  }
+  }
 
 AgregarTarjetaDesdeEmpresa()
 {

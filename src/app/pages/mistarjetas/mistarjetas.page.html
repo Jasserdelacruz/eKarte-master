@@ -1,15 +1,5 @@
 
-<ion-header no-border  >
-  <ion-header *ngIf ="!hasverifiedemail">Por Favor Verifique su Email
-   <div>
-    <ion-button (click)="onSendVerificationEmail()">Enviar Email de Verificación</ion-button>
-   
-    <ion-button (click) = "onReload()">Refrescar</ion-button>
-  </div>
-  <div *ngIf="sentTimestamp">
-    Email de Verificación Enviado: {{sentTimestamp | date:'medium'}}
-  </div>
-  </ion-header>   
+<ion-header no-border  > 
     <ion-toolbar padding class="background">
 
     <ion-menu-button color="light" slot="start">
@@ -24,7 +14,7 @@
 
  <ion-menu side="start" menuId="first" contentId="main">
   <ion-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="ekarteMorado">
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
@@ -59,6 +49,63 @@
 </ion-menu>
 
 <ion-router-outlet id="main"></ion-router-outlet>
+
+<ion-content>
+  <ion-list ion-item *ngFor="let tarjeta of tarjetasfbcliente">
+  <ion-card>
+  <ion-item-sliding>
+    <ion-item button="true" color="{{tarjeta.EmpresaAsociada}}"(click)="openModal(tarjeta.CodigoTarjeta)">
+    <ion-avatar slot="start">
+            <img src="assets\imagenes\{{tarjeta.EmpresaAsociada}}.png">
+        </ion-avatar>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+        <ion-label class="ion-text-wrap">
+        <ion-text>
+          <h1>
+           {{tarjeta.EmpresaAsociada}}
+          </h1> 
+
+          <h2>
+          Puntos: {{tarjeta.Puntos}}
+          </h2>
+        </ion-text>
+        </ion-label>
+        </ion-col>
+
+        <ion-col>
+        <ion-label>
+
+        <ion-text>
+        <h2>
+          Vence:
+        </h2>
+        </ion-text>
+        {{tarjeta.FechaExpiracion}}
+        </ion-label>
+
+  
+        </ion-col>
+        </ion-row>
+    </ion-grid>
+    </ion-item>
+
+      <ion-item-options side="start" (click)="informacionTarjeta(tarjeta.EmpresaAsociada, tarjeta.Nombre)">
+       <ion-item-option color="primary">Información</ion-item-option>
+      </ion-item-options>
+
+      <ion-item-options side="end">
+       <ion-item-option color="danger" (click)="botoneliminar(tarjeta.UID)">Eliminar</ion-item-option>
+      </ion-item-options>
+
+  </ion-item-sliding>
+  </ion-card>
+</ion-list>
+
+</ion-content>
+
+
 
 
 

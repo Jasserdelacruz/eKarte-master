@@ -6,6 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { MistarjetasPage } from './mistarjetas.page';
+import { ModalImagentarjetaPage } from '../modal-imagentarjeta/modal-imagentarjeta.page';
+import { ComponentsModule } from '../../components/menu/components.module';
+import { ModalImagentarjetaPageModule } from '../modal-imagentarjeta/modal-imagentarjeta.module';
 
 const routes: Routes = [
   {
@@ -15,11 +18,17 @@ const routes: Routes = [
 ];
 
 @NgModule({
+  entryComponents: [
+    ModalImagentarjetaPage
+
+],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ModalImagentarjetaPageModule,
+    ComponentsModule,
   ],
   declarations: [MistarjetasPage]
 })

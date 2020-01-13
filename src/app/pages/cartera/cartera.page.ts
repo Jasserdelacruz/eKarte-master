@@ -29,7 +29,7 @@ export class CarteraPage implements OnInit {
     {
       this.tarjetasfbcliente=[];
       this.tarjetasfbcliente = arraytarjetas;
-    })
+    });
 
 
       

@@ -8,6 +8,8 @@ import { StorageService, Item } from '../../servicios/storage.service';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
 import { DatePipe } from '@angular/common';
 import { EmpresaService } from '../../servicios/empresa.service';
+import { AuthService } from '../../servicios/auth.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-ajustes',
@@ -18,7 +20,8 @@ export class AjustesPage implements OnInit {
   fechaexpiracion: string;
 
   constructor(private empresaService: EmpresaService,private camera: Camera, private db : AppfirebaseService, private router : Router, private activatedRoute: ActivatedRoute, 
-    private storageService: StorageService, private ptl: Platform, public datePicker: DatePicker, public datePipe: DatePipe, public alertController: AlertController) {
+    private storageService: StorageService, private ptl: Platform, public datePicker: DatePicker, public datePipe: DatePipe, public alertController: AlertController, 
+    private auth: AuthService, private AFauth: AngularFireAuth) {
       this.ptl.ready().then(() => {
         this.fechaexpiracion = this.datePipe.transform(new Date(), "dd-MM-yyyy");
       });
@@ -29,12 +32,28 @@ export class AjustesPage implements OnInit {
       header: 'Alerta',
       subHeader: 'Eliminar Cuenta',
       message: 'Si presiona "Continuar" va a eliminar su cuenta para siempre.',
-      buttons: ['Continuar', 'Cancelar'],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Confirmar',
+          handler: () => {
+            this.BotonEliminarCuenta();
+          }
+        }
+      ],
     });
   
     await alert.present();
     let result = await alert.onDidDismiss();
     console.log(result);
+
+    
+
   }
 
 
@@ -48,6 +67,13 @@ export class AjustesPage implements OnInit {
     this.datePicker.show(options).then ((date) => {
       this.fechaexpiracion = this.datePipe.transform(date, "dd-MM-yyyy");
     });
+
+  }
+
+  BotonEliminarCuenta() {
+    this.AFauth.auth.currentUser.delete();
+    this.router.navigate(['/inicio']);
+    console.log('Se eliminó la cuenta');
 
   }
 

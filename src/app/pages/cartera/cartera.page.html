@@ -68,11 +68,10 @@
 
 
   
-    
-  </ion-card>
   <ion-item>
-    <ion-toggle slot="start" class="toggle" mode="ios" (click)="checkboxFavorita(tarjeta)" [(ngModel)]="tarjeta.UID"></ion-toggle>
-  </ion-item>
+    <ion-toggle slot="start" class="toggle" mode="ios" (click)="checkboxFavorita(tarjeta.UID,tarjeta.Favorita)" [(ngModel)]="tarjeta.Favorita"></ion-toggle>
+  </ion-item>    
+  </ion-card>
 </ion-list>
 </ion-content>
 

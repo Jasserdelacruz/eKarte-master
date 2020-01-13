@@ -19,7 +19,7 @@ export class CarteraPage implements OnInit {
   public tarjetas : any = [];
   public tarjetasfbcliente : any = [];
   public TarjetasFavoritas : any = [];
-  public favorita: boolean;
+  public favorita: string = "true";
 
 
 
@@ -109,18 +109,39 @@ export class CarteraPage implements OnInit {
    // this.nav.navigateForward(['/modal-cig',codigotarjeta]);
   }
 
-  checkboxFavorita(tarjeta) {
-    
-    if (this.favorita === true) {
-      this.TarjetasFavoritas.add(tarjeta);
-
-    } else {
-      this.TarjetasFavoritas.remove(tarjeta);
+  checkboxFavorita(tarjetaUID,tarjetaFavorita) {
+    if (tarjetaFavorita=="false")
+    {
+      this.tarjetasfbcliente=[];
+      this.db.ActualizarTarjetaFavorita(tarjetaUID,"true").then(
+        res=>
+        {
+          this.db.ObtenerTarjetas().then(arraytarjetas =>
+            {
+              this.tarjetasfbcliente=[];
+              this.tarjetasfbcliente = arraytarjetas;
+            })
+        }
+      )
 
     }
+    else
+    {
+      this.tarjetasfbcliente=[];
+      this.db.ActualizarTarjetaFavorita(tarjetaUID,"false").then(
+        res=>
+        {
+          this.db.ObtenerTarjetas().then(arraytarjetas =>
+            {
+              this.tarjetasfbcliente=[];
+              this.tarjetasfbcliente = arraytarjetas;
+            })
+        }
+      )
+    }
+   
+   
 
-    console.log(this.TarjetasFavoritas);
-    
   }
 
 

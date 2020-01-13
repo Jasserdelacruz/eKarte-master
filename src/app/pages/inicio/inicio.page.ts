@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../servicios/auth.service";
 import { Router } from "@angular/router";
+import { AngularFireAuth } from '@angular/fire/auth';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import * as firebase from 'firebase/app';
+import { Observable } from 'rxjs';
+import { Platform } from '@ionic/angular';
 
 
 
@@ -12,7 +17,8 @@ import { Router } from "@angular/router";
 export class InicioPage implements OnInit {
   email: string;
   password: string;
-  constructor(private authService: AuthService, public router: Router) { }
+  constructor(private authService: AuthService, public router: Router, 
+              private afAuth: AngularFireAuth, private gplus: GooglePlus, public afauth: AngularFireAuth) { }
 
   ngOnInit() {
   }
@@ -32,6 +38,15 @@ export class InicioPage implements OnInit {
          }
         }).catch(err => alert ('Los datos son incorrectos o no existe el usuario'));
     console.log("estas en la funcion")
+  }
+
+
+
+  GoogleLogin() {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(res => {
+        this.router.navigate(['/mistarjetas']);
+      }).catch (err => alert ('Hubo un error, intente de nuevo.'));
+    
   }
   
 

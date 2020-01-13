@@ -38,9 +38,9 @@ export class CrearCuentaPage implements OnInit {
         if (this.terminosYCondiciones === true) {
           this.auth.register(this.nombre, this.apellido, this.genero,this.email, this.password).then(auth =>
             {
-              alert ('El usuario se ha registrado exitosamente.')
-              this.router.navigate(['/inicio'])
-              console.log(auth)
+              alert ('El usuario se ha registrado exitosamente.');
+              this.router.navigate(['/inicio']);
+              console.log(auth);
             }
             ).catch(err =>alert(err))
         } else {

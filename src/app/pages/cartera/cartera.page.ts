@@ -66,10 +66,10 @@ export class CarteraPage implements OnInit {
   }
 
 
-  async informacionTarjeta(tarjeta, informacion) {
+  async informacionTarjeta(tarjeta: string, informacion: string) {
     const alert = await this.alertController.create({
       header: tarjeta,
-      subHeader: 'Informacion',
+      subHeader: 'Descripción',
       message: informacion,
       buttons: ['OK']
     });

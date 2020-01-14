@@ -54,7 +54,7 @@
   <ion-list ion-item *ngFor="let tarjeta of tarjetasfbcliente">
   <ion-card>
   <ion-item-sliding>
-    <ion-item button="true" color="{{tarjeta.EmpresaAsociada}}"(click)="openModal(tarjeta.CodigoTarjeta)">
+    <ion-item  *ngIf ="tarjeta.Favorita == 'true'" button="true" color="{{tarjeta.EmpresaAsociada}}"(click)="openModal(tarjeta.CodigoTarjeta)">
     <ion-avatar slot="start">
             <img src="assets\imagenes\{{tarjeta.EmpresaAsociada}}.png">
         </ion-avatar>

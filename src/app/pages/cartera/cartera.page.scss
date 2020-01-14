@@ -20,4 +20,19 @@ img{
 
 }
 
+.toggle{
+      margin-left: 80px;
+    --handle-background: url(/assets/imagenes/corazonVacio.svg);
+    --handle-background-checked: url(/assets/imagenes/corazonLleno.svg);
+    --background: rgb(233, 227, 227);
+    --background-checked: red;
+    
+}
+
+.vencimiento{
+    display: inline;
+}
+
+
+
 

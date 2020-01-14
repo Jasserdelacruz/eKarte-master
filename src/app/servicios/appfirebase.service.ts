@@ -12,6 +12,7 @@ interface tarjeta
   UID : String
   Puntos: String
   CodigoTarjeta: String
+  Favorita: String
 }
 
 @Injectable({
@@ -19,6 +20,7 @@ interface tarjeta
 })
 export class AppfirebaseService {
   public tarjetas : Array<Object> = [];
+  public TarjetasFavoritas : Array<Object> = [];
   private User : any;
   constructor( private db: AngularFirestore, private AFauth: AngularFireAuth) 
   { 
@@ -44,7 +46,8 @@ export class AppfirebaseService {
                 FechaExpiracion : fechaexpiracion,
                 Puntos : puntos,
                 PathImagen : pathimagen,
-                CodigoTarjeta : codigotarjeta
+                CodigoTarjeta : codigotarjeta,
+                Favorita : "false"
               }).then(resinsert =>
               {
                 resolve("Datos insertados correctamente" + resinsert);
@@ -122,4 +125,24 @@ export class AppfirebaseService {
 
   })
   }
+
+  ActualizarTarjetaFavorita(Tarjeta: string,favorita: string)
+  {
+    return new Promise ((resolve, reject) => 
+    {
+      this.AFauth.auth.onAuthStateChanged( user => {
+      console.log("UID: " + user.uid);
+      this.db.collection('CUENTA').doc(user.uid).collection('Tarjeta').doc(Tarjeta).update(
+        {
+          Favorita: favorita
+        }).then(res =>
+       {
+         resolve("Tarjeta Actualizada");
+       }
+        );
+    })
+
+  })
+  }
+
 }

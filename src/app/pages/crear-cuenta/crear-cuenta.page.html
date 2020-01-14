@@ -53,7 +53,7 @@
   <ion-item>
         <a routerLink="/terminos-condiciones" >Aceptar términos y condiciones</a>
 
-      <ion-toggle slot="end"></ion-toggle>
+      <ion-toggle name="condiciones" slot="end" [(ngModel)]="terminosYCondiciones"></ion-toggle>
   </ion-item>
 
 </ion-list>

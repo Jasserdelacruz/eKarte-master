@@ -21,11 +21,15 @@ img{
 }
 
 .toggle{
-      margin-left: 80px;
+      //margin-top: 5px;
+      margin-left: 10px;
+      margin-bottom: 5px;
     --handle-background: url(/assets/imagenes/corazonVacio.svg);
     --handle-background-checked: url(/assets/imagenes/corazonLleno.svg);
     --background: rgb(233, 227, 227);
-    --background-checked: red;
+    --background-checked: rgb(202, 2, 2);
+    float: left;
+    
     
 }
 
@@ -33,6 +37,17 @@ img{
     display: inline;
 }
 
+.puntos{
+    text-align: center;
+    
+}
+
+.empresa{
+    text-align: center;
+    //margin-top: 5px;
+    
+    
+}
 
 
 

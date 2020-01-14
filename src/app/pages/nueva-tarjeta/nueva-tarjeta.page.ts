@@ -21,7 +21,7 @@ newItem: Item = <Item>{};
 nombre:string ="";
 empresaasociada:string ="";
 fechaexpiracion:string = "";
-puntos:string = "No Consultados en Empresa";
+puntos:string = "No consultados";
 pathimagen:string = "Imagen no agregada desde Empresas";
 codigotarjeta: string = ""
 foto: any;

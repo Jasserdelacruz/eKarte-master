@@ -52,7 +52,7 @@
 
 <ion-content>
   <ion-list ion-item *ngFor="let tarjeta of tarjetasfbcliente">
-  <ion-card>
+  <ion-card color="{{tarjeta.EmpresaAsociada}}">
   <ion-item-sliding>
     <ion-item  *ngIf ="tarjeta.Favorita == 'true'" button="true" color="{{tarjeta.EmpresaAsociada}}"(click)="openModal(tarjeta.CodigoTarjeta)">
     <ion-avatar slot="start">
@@ -60,16 +60,13 @@
         </ion-avatar>
     <ion-grid>
       <ion-row>
-        <ion-col>
+        <ion-col class="empresa">
         <ion-label class="ion-text-wrap">
         <ion-text>
           <h1>
            {{tarjeta.EmpresaAsociada}}
           </h1> 
 
-          <h2>
-          Puntos: {{tarjeta.Puntos}}
-          </h2>
         </ion-text>
         </ion-label>
         </ion-col>
@@ -100,6 +97,9 @@
       </ion-item-options>
 
   </ion-item-sliding>
+
+  
+
   </ion-card>
 </ion-list>
 

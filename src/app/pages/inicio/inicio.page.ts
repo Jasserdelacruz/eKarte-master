@@ -43,10 +43,17 @@ export class InicioPage implements OnInit {
 
 
   GoogleLogin() {
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(res => {
-        this.router.navigate(['/mistarjetas']);
-      }).catch (err => alert ('Hubo un error, intente de nuevo.'));
-    
+    this.gplus.login({
+      'webClientId':'684698051198-3eilqgfacn9vd98rarq71gvv9im4bsa0.apps.googleusercontent.com',
+      offline:true
+    }).then(res=>{
+      firebase.auth().signInWithCredential(firebase.auth.GoogleAuthProvider.credential(res.idtoken))
+      .then(succ=>{
+        alert("Login exitoso")
+      }).catch(ns=>{
+        alert("Login no exitoso")
+      })
+    })
   }
   
 

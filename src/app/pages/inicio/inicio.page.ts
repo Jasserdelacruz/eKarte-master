@@ -42,7 +42,21 @@ export class InicioPage implements OnInit {
 
 
 
-  GoogleLogin() {
+  async GoogleLogin() {
+    try {
+      const gplusUser = await this.gplus.login(
+        {
+          'webClientId': '813746992987-egpg9prsq2ci31s28btsfhqhuec85pkc.apps.googleusercontent.com',
+          'offline': true,
+          'scopes': '813746992987-compute@developer.gserviceaccount.com'
+        }
+      )
+      return await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken))
+    } catch (error) {
+      console.log(error);
+    }
+
+
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(res => {
         this.router.navigate(['/mistarjetas']);
       }).catch (err => alert ('Hubo un error, intente de nuevo.'));

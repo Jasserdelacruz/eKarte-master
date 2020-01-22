@@ -43,11 +43,11 @@ export class InicioPage implements OnInit {
 
 
   GoogleLogin() {
-      this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(res => {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(res => {
         this.router.navigate(['/mistarjetas']);
-      }).catch (err => alert (err));
+      }).catch (err => alert ('Hubo un error, intente de nuevo.'));
 
-  }
+    }
   
 
 }
